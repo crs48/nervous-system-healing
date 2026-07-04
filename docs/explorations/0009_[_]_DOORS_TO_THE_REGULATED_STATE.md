@@ -665,9 +665,9 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
   - [x] Cannabis (biphasic, "mixed" explained)
   - [x] LSD & psilocybin (2A + sympathomimetic; "higher resolution but
         jittery"; DMN/entropic brain; afterglow)
-- [ ] "Why capacity is limited" — **extend** the existing
+- [x] "Why capacity is limited" — **extend** the existing
       [`capacity-and-the-window-of-tolerance.md`](src/content/garden/capacity-and-the-window-of-tolerance.md)
-  - [ ] Add allostatic load, HRV as a self-regulation index, neuroception, and
+  - [x] Add allostatic load, HRV as a self-regulation index, neuroception, and
         the documented relaxation-induced-anxiety finding — ending on
         capacity-as-trainable hope
 - [ ] Component (optional)
