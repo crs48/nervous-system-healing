@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/url";
+
+const doors = [
+  {
+    href: "start/",
+    title: "Start here",
+    text: "New to all this? A short path — five small steps, ten minutes, skippable at every point.",
+  },
+  {
+    href: "learn/",
+    title: "Understand",
+    text: "What nervous system states are, and why capacity grows slowly.",
+  },
+  {
+    href: "practices/",
+    title: "Practices",
+    text: "Short, concrete practices — two to ten minutes, sorted by how you're arriving.",
+  },
+  {
+    href: "modalities/",
+    title: "Modalities",
+    text: "An honest directory of therapies and approaches, with evidence grades and real costs.",
+  },
+];
+---
+
+<Base
+  title="A calm place to start"
+  description="A free orientation hub for nervous system healing — honest, gentle, and built to point you onward."
+>
+  <section class="py-8">
+    <h1 class="text-4xl sm:text-5xl max-w-[24ch]">
+      A calm place to understand and work with your nervous system.
+    </h1>
+    <p class="mt-6 text-xl max-w-[65ch]" data-intro>
+      Hi, I'm Chris — I'm walking this road too. This site is a free,
+      honest starting place: no products, no accounts, no urgency. Just what
+      I wish someone had shown me sooner, organized gently.
+    </p>
+  </section>
+
+  <section aria-label="Ways in" class="grid gap-4 sm:grid-cols-2 py-6">
+    {
+      doors.map((d) => (
+        <a
+          href={url(d.href)}
+          class="block rounded-card bg-[var(--surface-raised)] p-6 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
+        >
+          <p class="font-display text-xl text-[var(--heading)] m-0">
+            {d.title}
+          </p>
+          <p class="mt-2 m-0 text-[var(--text-muted)]">{d.text}</p>
+        </a>
+      ))
+    }
+  </section>
+
+  <script>
+    // Mark home as seen (first-visit vs returning, 0007). Fail-safe.
+    try {
+      const key = "nsh:profile:v1";
+      const p = JSON.parse(localStorage.getItem(key) ?? "{}");
+      p.seen = { ...(p.seen ?? {}), home: true };
+      localStorage.setItem(key, JSON.stringify(p));
+    } catch {}
+  </script>
+</Base>

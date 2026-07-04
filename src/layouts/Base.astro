@@ -1,0 +1,127 @@
+---
+import "../styles/global.css";
+import "@fontsource-variable/fraunces";
+import "@fontsource/atkinson-hyperlegible-next/400.css";
+import "@fontsource/atkinson-hyperlegible-next/500.css";
+import "@fontsource/atkinson-hyperlegible-next/700.css";
+import { url } from "../lib/url";
+
+interface Props {
+  title: string;
+  description: string;
+  /** breadcrumb trail, e.g. [{ label: "practices", href: "practices/" }] */
+  crumbs?: { label: string; href: string }[];
+}
+const { title, description, crumbs = [] } = Astro.props;
+
+const nav = [
+  { label: "Start here", href: "start/" },
+  { label: "Understand", href: "learn/" },
+  { label: "Practices", href: "practices/" },
+  { label: "Modalities", href: "modalities/" },
+];
+const current = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Nervous System Healing"
+      href={url("rss.xml")}
+    />
+    <title>{title} · Nervous System Healing</title>
+    <script is:inline>
+      // Pre-paint, fail-safe (0002/0007): first-visit flag only in Build 1.
+      try {
+        var p = JSON.parse(localStorage.getItem("nsh:profile:v1") || "{}");
+        if (p.seen && p.seen.home) document.documentElement.dataset.returning = "true";
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-[var(--surface-raised)] focus:px-4 focus:py-2 focus:rounded-soft"
+      >Skip to content</a
+    >
+
+    <header class="border-b border-sage-200/60">
+      <nav
+        aria-label="Main"
+        class="mx-auto max-w-4xl px-4 py-4 flex flex-wrap items-center gap-x-5 gap-y-2"
+      >
+        <a
+          href={url("")}
+          class="font-display text-lg no-underline text-[var(--heading)]"
+          >Nervous System Healing</a
+        >
+        <span class="flex-1"></span>
+        {
+          nav.map((item) => (
+            <a
+              href={url(item.href)}
+              aria-current={current.startsWith(url(item.href)) ? "page" : undefined}
+              class:list={[
+                "no-underline text-[var(--text-muted)] rounded-soft px-2 py-1",
+                current.startsWith(url(item.href)) &&
+                  "bg-[var(--surface-panel)] text-[var(--heading)]",
+              ]}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <main id="main" class="mx-auto w-full max-w-4xl px-4 py-10 flex-1">
+      {
+        crumbs.length > 0 && (
+          <nav aria-label="You are here" class="mb-4 text-sm text-[var(--text-muted)]">
+            you're in:{" "}
+            {crumbs.map((c, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true"> / </span>}
+                <a href={url(c.href)} class="text-[var(--text-muted)]">
+                  {c.label}
+                </a>
+              </>
+            ))}
+          </nav>
+        )
+      }
+      <slot />
+    </main>
+
+    <footer class="border-t border-sage-200/60 mt-16">
+      <div class="mx-auto max-w-4xl px-4 py-10 text-sm text-[var(--text-muted)] space-y-4">
+        <p class="font-display text-base text-[var(--heading)]">
+          You're always welcome here. Go gently.
+        </p>
+        <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0">
+          <li><a href={url("about/why/")}>why this site exists</a></li>
+          <li><a href={url("about/ethos/")}>how it's funded (it isn't)</a></li>
+          <li><a href={url("about/criteria/")}>curation criteria</a></li>
+          <li><a href={url("about/red-flags/")}>red flags</a></li>
+          <li><a href={url("style/")}>style guide</a></li>
+          <li><a href={url("rss.xml")}>rss</a></li>
+        </ul>
+        <p>
+          <a href={url("about/disclaimer/")}
+            >Educational content, not medical advice — and crisis resources</a
+          >. If you're in crisis in the US: call or text
+          <strong>988</strong>, or text <strong>HOME</strong> to
+          <strong>741741</strong>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

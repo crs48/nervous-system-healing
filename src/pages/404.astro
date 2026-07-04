@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/url";
+---
+
+<Base
+  title="Page not found"
+  description="This page seems to have wandered off."
+>
+  <h1 class="text-3xl mb-4">This page seems to have wandered off.</h1>
+  <p class="max-w-[65ch]">
+    Take a breath — here's <a href={url("")}>the way back home</a>, or you
+    could <a href={url("start/")}>start from the beginning</a>.
+  </p>
+</Base>
