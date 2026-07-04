@@ -639,10 +639,10 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
         (`prescription-only | research-only | illegal | varies`)
   - [x] Decide whether the `practices` schema should gain an explicit
         `contraindications` field or keep safety in body prose (see Risks)
-- [ ] Guidelines
-  - [ ] Append copy conventions (name-the-room, borrowed-vs-built, substances =
+- [x] Guidelines
+  - [x] Append copy conventions (name-the-room, borrowed-vs-built, substances =
         n=1 + mechanism, efforting-paradox) to `CONTENT_GUIDELINES.md`
-  - [ ] Add the substance editorial policy (no protocols/dosing/sourcing;
+  - [x] Add the substance editorial policy (no protocols/dosing/sourcing;
         legality + medical framing; mandatory pivot to a `freeFirstSteps` door)
         to the content review gate
 - [ ] `garden` field-guide series — "Doors to the Regulated State"
