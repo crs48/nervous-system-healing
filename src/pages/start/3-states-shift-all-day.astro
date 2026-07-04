@@ -1,0 +1,56 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import StepNav from "../../components/StepNav.astro";
+import NoticeAside from "../../components/NoticeAside.astro";
+---
+
+<Base
+  title="States shift all day"
+  description="Step three: these states move through a normal day all the time — noticing the shifts is the first skill."
+  crumbs={[
+    { label: "home", href: "" },
+    { label: "start here", href: "start/" },
+  ]}
+>
+  <h1 class="text-3xl sm:text-4xl">States shift all day. That's normal.</h1>
+  <Lead>
+    A nervous system in good shape doesn't stay calm all the time — it
+    <em>moves</em>. Something startles you, you rev up; it passes, you settle.
+    You get absorbed in something, you brighten; you tire, you dim. The states
+    are supposed to shift. Flexibility is the health, not permanent calm.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      Think of an ordinary morning. The alarm jolts you (a little activation).
+      Coffee and quiet settle you. A tense email spikes you. A walk outside
+      brings you back down. None of that is a problem — it's a nervous system
+      doing exactly its job, rising and falling with the day.
+    </p>
+    <p>
+      Trouble looks less like "having states" and more like <em>getting
+      stuck</em> in one — staying revved long after the stressor is gone, or
+      staying shut down when it would be safe to come back up. A lot of
+      healing is simply widening the range again, so the system can move the
+      way it's meant to.
+    </p>
+    <p>
+      And the very first skill is small: just noticing which way the weather is
+      blowing, without needing to fix it.
+    </p>
+  </div>
+
+  <NoticeAside>
+    <p class="m-0">
+      There's a sound in the room with you right now that you'd stopped
+      hearing — a fan, the fridge, traffic, the hum of the screen. It didn't
+      get louder. Your attention just landed on it, because this sentence
+      sent it there. That landing — that's noticing. It's the whole first
+      skill, and you already have it. You can let the sound fade back now if
+      you like.
+    </p>
+  </NoticeAside>
+
+  <StepNav step={3} />
+</Base>

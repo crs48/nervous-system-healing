@@ -1,0 +1,38 @@
+---
+import { url } from "../lib/url";
+/** Per-claim evidence grading (0003/0004). Legend lives on /about/criteria/. */
+interface Props {
+  tier:
+    | "strong"
+    | "moderate"
+    | "preliminary"
+    | "practitioner-reported"
+    | "contested";
+}
+const { tier } = Astro.props;
+const labels: Record<string, string> = {
+  strong: "strong evidence",
+  moderate: "moderate evidence",
+  preliminary: "preliminary evidence",
+  "practitioner-reported": "practitioner-reported",
+  contested: "contested",
+};
+const tone: Record<string, string> = {
+  strong: "bg-sage-200 text-moss-800",
+  moderate: "bg-sage-100 text-moss-800",
+  preliminary: "bg-cream-100 text-ink",
+  "practitioner-reported": "bg-cream-100 text-ink-muted",
+  contested: "bg-rose-300/40 text-ink",
+};
+---
+
+<a
+  href={url("about/criteria/")}
+  class:list={[
+    "inline-block rounded-full px-3 py-0.5 text-sm no-underline",
+    tone[tier],
+  ]}
+  title="What this grade means — curation criteria"
+>
+  {labels[tier]}
+</a>

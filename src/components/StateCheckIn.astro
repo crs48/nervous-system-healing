@@ -1,0 +1,135 @@
+---
+/** Stateless two-axis check-in (0002/0008). Two sliders (energy × ease) →
+    a named blended state reflected in plain language → tier-safe routed
+    practices. No persistence in Build 1; copy must not imply memory. */
+import { url } from "../lib/url";
+---
+
+<state-check-in
+  class="block rounded-card bg-[var(--surface-panel)]/50 p-6 max-w-[46ch]"
+  data-practices-base={url("practices/")}
+>
+  <p class="text-sm text-[var(--text-muted)] mt-0">
+    Two quick sliders — there's no right answer, and nothing is saved. If
+    words for body feelings are hard, the little cues under each slider might
+    help.
+  </p>
+
+  <fieldset class="border-0 p-0 m-0 mt-4">
+    <label class="block font-medium" for="energy">Energy, right now</label>
+    <input
+      id="energy"
+      data-energy
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      class="w-full"
+    />
+    <p class="flex justify-between text-sm text-[var(--text-muted)] m-0">
+      <span>flat, heavy, still</span><span>revved, buzzing, restless</span>
+    </p>
+  </fieldset>
+
+  <fieldset class="border-0 p-0 m-0 mt-5">
+    <label class="block font-medium" for="ease">Ease, right now</label>
+    <input
+      id="ease"
+      data-ease
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      class="w-full"
+    />
+    <p class="flex justify-between text-sm text-[var(--text-muted)] m-0">
+      <span>on guard, unsettled</span><span>safe enough, at ease</span>
+    </p>
+  </fieldset>
+
+  <button
+    data-reflect
+    class="mt-5 rounded-soft bg-clay-600 text-[var(--surface)] px-5 py-2 border-0 cursor-pointer"
+    >Show me where I might be</button
+  >
+
+  <div data-result class="mt-5" hidden aria-live="polite"></div>
+</state-check-in>
+
+<script>
+  type Lane = {
+    name: string;
+    reflection: string;
+    stateId: string;
+    tierNote: string;
+  };
+
+  // Map the two axes to a named blended state (0002/0006).
+  function classify(energy: number, ease: number): Lane {
+    const lowEase = ease < 45;
+    const highEnergy = energy > 55;
+    const lowEnergy = energy < 45;
+
+    if (lowEase && lowEnergy) {
+      return {
+        name: "wired and tired — or shut down",
+        reflection:
+          "That can be a blend the body knows well: activated underneath, but flat or frozen on top. It's tiring, and it's common. From here, the gentlest things help most — small signals of safety, not big efforts.",
+        stateId: "freeze-blend",
+        tierNote:
+          "These are the softest practices only — nothing that stirs things up.",
+      };
+    }
+    if (lowEase && highEnergy) {
+      return {
+        name: "activated — revved and on guard",
+        reflection:
+          "Sounds like there's a lot of energy and not much ease — the anxious, fight-or-flight end. The move here isn't to force calm (that rarely works) but to let the revving come down a drop at a time.",
+        stateId: "settle",
+        tierNote: "",
+      };
+    }
+    if (lowEnergy) {
+      return {
+        name: "numb, flat, or dreary",
+        reflection:
+          "Low energy with things feeling okay-ish can be a quiet, dorsal kind of place. Not an emergency — but if you'd like a little more aliveness, these invite it gently, without pushing.",
+        stateId: "remobilize",
+        tierNote: "",
+      };
+    }
+    return {
+      name: "settled enough — some room to work with",
+      reflection:
+        "There's a bit of ease and steadiness here. That's a good time to gently widen your capacity, so the harder days have more room in them.",
+      stateId: "build-capacity",
+      tierNote: "",
+    };
+  }
+
+  class StateCheckIn extends HTMLElement {
+    connectedCallback() {
+      const btn = this.querySelector<HTMLButtonElement>("[data-reflect]")!;
+      const out = this.querySelector<HTMLElement>("[data-result]")!;
+      const base = this.dataset.practicesBase!;
+      btn.addEventListener("click", () => {
+        const energy = Number(
+          this.querySelector<HTMLInputElement>("[data-energy]")!.value,
+        );
+        const ease = Number(
+          this.querySelector<HTMLInputElement>("[data-ease]")!.value,
+        );
+        const lane = classify(energy, ease);
+        out.hidden = false;
+        out.innerHTML = `
+          <p class="font-display text-lg text-[var(--heading)] m-0">That might be: ${lane.name}</p>
+          <p class="mt-2">${lane.reflection}</p>
+          ${lane.tierNote ? `<p class="text-sm text-[var(--text-muted)]">${lane.tierNote}</p>` : ""}
+          <p class="mt-3"><a href="${base}#${lane.stateId}">See practices for this →</a></p>
+          <p class="text-sm text-[var(--text-muted)]">This isn't saved anywhere, and it's only a mirror — you know your own experience best.</p>
+        `;
+      });
+    }
+  }
+  customElements.define("state-check-in", StateCheckIn);
+</script>

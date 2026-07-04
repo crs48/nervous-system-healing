@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Quiet Delight design tokens — docs/explorations/0007.
+   Warmth = hue temperature; calm = low chroma. No pure #fff/#000 anywhere. */
+@theme {
+  /* Earth palette — fixed OKLCH lightness stops across hues */
+  --color-cream-50: oklch(0.97 0.008 85);
+  --color-cream-100: oklch(0.945 0.012 85);
+  --color-sage-100: oklch(0.9 0.02 135);
+  --color-sage-200: oklch(0.85 0.03 135);
+  --color-sage-600: oklch(0.45 0.05 140);
+  --color-moss-800: oklch(0.38 0.04 140);
+  --color-clay-400: oklch(0.68 0.1 35);
+  --color-clay-600: oklch(0.5 0.11 35);
+  --color-rose-300: oklch(0.77 0.05 30);
+  --color-ink: oklch(0.35 0.02 70);
+  --color-ink-muted: oklch(0.52 0.02 70);
+
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --radius-soft: 0.75rem;
+  --radius-card: 1rem;
+  --shadow-soft: 0 2px 8px oklch(0.35 0.02 70 / 0.08);
+  --shadow-lift: 0 6px 24px oklch(0.35 0.02 70 / 0.1);
+}
+
+/* Semantic roles; warm dark mode = hold hue ~70°, drop L, trim C (0007). */
+:root {
+  --surface: var(--color-cream-50);
+  --surface-raised: var(--color-cream-100);
+  --surface-panel: var(--color-sage-100);
+  --text: var(--color-ink);
+  --text-muted: var(--color-ink-muted);
+  --heading: var(--color-moss-800);
+  --accent: var(--color-clay-600);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: oklch(0.22 0.01 70);
+    --surface-raised: oklch(0.26 0.012 70);
+    --surface-panel: oklch(0.29 0.02 135);
+    --text: oklch(0.91 0.01 85);
+    --text-muted: oklch(0.74 0.015 85);
+    --heading: oklch(0.85 0.03 135);
+    --accent: oklch(0.72 0.09 35);
+  }
+}
+
+/* Base element styling lives in @layer base so Tailwind utilities
+   (e.g. .no-underline on card links) can still override it. */
+@layer base {
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+    color: var(--heading);
+    line-height: 1.2;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 250ms var(--ease-gentle);
+  }
+
+  ::selection {
+    background: var(--color-sage-200);
+    color: var(--color-moss-800);
+  }
+}
+
+/* Long-form prose defaults (warm typography plugin overrides) */
+.prose {
+  --tw-prose-body: var(--text);
+  --tw-prose-headings: var(--heading);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--text);
+  --tw-prose-quotes: var(--text-muted);
+  --tw-prose-quote-borders: var(--color-sage-200);
+  --tw-prose-bullets: var(--color-sage-600);
+  --tw-prose-counters: var(--color-sage-600);
+  --tw-prose-hr: var(--color-sage-200);
+  --tw-prose-code: var(--text);
+  max-width: 65ch;
+}
+
+/* Chunking: more space above headings than below (COGA pattern, 0007) */
+.prose :is(h2, h3) {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+
+/* Calm motion: reduced-motion strips transforms, keeps feedback as opacity */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-property: opacity, color, background-color !important;
+    scroll-behavior: auto !important;
+  }
+}

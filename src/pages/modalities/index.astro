@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import EvidenceTag from "../../components/EvidenceTag.astro";
+import { url } from "../../lib/url";
+
+const modalities = (await getCollection("modalities")).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+
+const tierRank: Record<string, number> = {
+  strong: 0,
+  moderate: 1,
+  preliminary: 2,
+  "practitioner-reported": 3,
+  contested: 4,
+};
+modalities.sort(
+  (a, b) => tierRank[a.data.evidenceTier] - tierRank[b.data.evidenceTier],
+);
+---
+
+<Base
+  title="Modalities"
+  description="An honest directory of nervous-system and trauma-healing approaches, graded by evidence, with real costs and practitioner directories."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Modalities</h1>
+  <Lead>
+    An honest directory of approaches — graded by how strong the evidence
+    actually is, with real costs and links to find practitioners. Nothing
+    here earns money, so nothing here needs to look better than it is. Before
+    you spend anything, it's worth reading
+    <a href={url("about/red-flags/")}>how to spot red flags</a> in this space.
+  </Lead>
+
+  <p class="text-sm text-[var(--text-muted)] mt-4">
+    Sorted by strength of evidence. <a href={url("about/criteria/")}
+      >What these grades mean →</a
+    >
+  </p>
+
+  <ul class="list-none p-0 mt-4 space-y-3">
+    {
+      modalities.map((m) => (
+        <li>
+          <a
+            href={url(`modalities/${m.id}/`)}
+            class="block rounded-card bg-[var(--surface-raised)] p-5 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
+          >
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span class="font-display text-lg text-[var(--heading)]">
+                {m.data.name}
+              </span>
+              <EvidenceTag tier={m.data.evidenceTier} />
+            </div>
+            <p class="mt-1 mb-0 text-[var(--text-muted)]">
+              {m.data.whoItTendsToFit}
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <NextSteps>
+    <li><a href={url("about/criteria/")}>How this directory is curated</a></li>
+    <li><a href={url("practices/")}>Free practices to try first</a></li>
+    <li><a href={url("")}>Back home</a></li>
+  </NextSteps>
+</Base>

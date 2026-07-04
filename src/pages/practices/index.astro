@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import PracticeCard from "../../components/PracticeCard.astro";
+import { url } from "../../lib/url";
+
+const practices = await getCollection("practices");
+
+const groups = [
+  {
+    id: "freeze-blend",
+    title: "Wired and tired — activated underneath, shut down on top",
+    note: "The gentlest practices only: no discharge work from here, just small signals of safety.",
+  },
+  {
+    id: "settle",
+    title: "Activated — anxious, revved, fight-flighty",
+    note: "Ways to let the revving ease, a drop at a time.",
+  },
+  {
+    id: "remobilize",
+    title: "Numb, flat, or dreary",
+    note: "Tiny, warm ways to invite a little movement back — never forcing.",
+  },
+  {
+    id: "build-capacity",
+    title: "Doing okay — build capacity",
+    note: "When there's a bit of room, these gently widen it.",
+  },
+];
+---
+
+<Base
+  title="Practices"
+  description="Short, concrete nervous-system practices — two to ten minutes, sorted by how you're arriving."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Practices</h1>
+  <Lead>
+    Short and concrete — most take two to five minutes. They're sorted by how
+    you might be arriving, and every one of them is optional, stoppable, and
+    fidget-friendly. If you're not sure where you are, the
+    <a href={url("start/4-where-might-you-be/")}>gentle check-in</a> can help
+    you pick a lane — or just browse.
+  </Lead>
+
+  {
+    groups.map((g) => {
+      const items = practices.filter((p) =>
+        (p.data.states as string[]).includes(g.id),
+      );
+      if (items.length === 0) return null;
+      return (
+        <section id={g.id} class="mt-10">
+          <h2 class="text-2xl">{g.title}</h2>
+          <p class="text-[var(--text-muted)] max-w-[65ch]">{g.note}</p>
+          <div class="grid gap-4 sm:grid-cols-2 mt-4">
+            {items.map((p) => (
+              <PracticeCard entry={p} />
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <NextSteps>
+    <li><a href={url("learn/")}>Understand what these states are</a></li>
+    <li><a href={url("modalities/")}>Ready for deeper support? The modality directory</a></li>
+    <li><a href={url("")}>Back home</a></li>
+  </NextSteps>
+</Base>

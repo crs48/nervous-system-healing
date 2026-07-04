@@ -1,0 +1,48 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import { url } from "../../lib/url";
+
+const steps = [
+  { href: "start/1-you-have-a-nervous-system/", label: "1. You have a nervous system (and it has states)" },
+  { href: "start/2-meet-the-states/", label: "2. Meet the states, one at a time" },
+  { href: "start/3-states-shift-all-day/", label: "3. States shift all day — that's normal" },
+  { href: "start/4-where-might-you-be/", label: "4. Where might you be right now?" },
+  { href: "start/5-change-is-possible/", label: "5. Change is possible, slowly" },
+];
+---
+
+<Base
+  title="Start here"
+  description="A short, gentle path into nervous system healing — five small steps, about ten minutes, skippable at every point."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Start here</h1>
+  <Lead>
+    If you're curious about nervous system healing but don't know where to
+    begin, this is the place. Five small steps, about ten minutes total. You
+    can skip any of them, stop whenever you like, and come back another day.
+    There's nothing to sign up for and nothing to get right.
+  </Lead>
+
+  <ol class="mt-6 space-y-3 max-w-[65ch]">
+    {
+      steps.map((s) => (
+        <li>
+          <a
+            href={url(s.href)}
+            class="block rounded-card bg-[var(--surface-raised)] p-4 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
+          >
+            {s.label}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="mt-6 max-w-[65ch]">
+    <a href={url("start/1-you-have-a-nervous-system/")}
+      >Begin with step one →</a
+    >
+  </p>
+</Base>

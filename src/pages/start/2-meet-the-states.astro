@@ -1,0 +1,62 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import StepNav from "../../components/StepNav.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="Meet the states"
+  description="Step two: the everyday nervous system states — settled, fight-or-flight, shutdown, and the blends between them."
+  crumbs={[
+    { label: "home", href: "" },
+    { label: "start here", href: "start/" },
+  ]}
+>
+  <h1 class="text-3xl sm:text-4xl">Meet the states, one at a time.</h1>
+  <Lead>
+    People describe a lot of what the nervous system does in terms of a few
+    broad states. They're not boxes you're stuck in — think of them more like
+    weather that moves through. Here are the main ones, in plain language.
+  </Lead>
+
+  <div class="prose">
+    <h2>Settled</h2>
+    <p>
+      Safe enough. You can think, feel, connect, rest. Things aren't
+      necessarily perfect — but there's room. This is the state most of the
+      healing work is quietly aiming to make more available.
+    </p>
+
+    <h2>Activated (fight-or-flight)</h2>
+    <p>
+      Revved up. Anxious, urgent, irritable, on guard, hard to sit still.
+      Energy is high and mobilized — the body is ready to do something about a
+      threat, whether or not there's one to do something about.
+    </p>
+
+    <h2>Shut down</h2>
+    <p>
+      The other direction: flat, numb, foggy, heavy, checked-out. When
+      fighting or fleeing didn't work or wasn't possible, the body can pull
+      the plug to protect you. It's not laziness. It's a survival setting.
+    </p>
+
+    <h2>The blends — like "wired and tired"</h2>
+    <p>
+      Here's the part that's easy to miss: these aren't switches, they're
+      more like dials, and more than one can be up at once. A very common
+      blend is feeling <em>activated underneath and shut down on top</em> — anxious
+      and exhausted at the same time. If that's the one that rings true, you're
+      not broken, and you're far from alone.
+    </p>
+  </div>
+
+  <p class="mt-4 max-w-[65ch]">
+    There's a fuller version of this on the
+    <a href={url("learn/meet-your-states/")}>Understand page</a>, whenever
+    you want it.
+  </p>
+
+  <StepNav step={2} />
+</Base>

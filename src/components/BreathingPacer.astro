@@ -1,0 +1,146 @@
+---
+/** Breathing pacer (0001/0004). Vanilla web component, zero framework.
+    No sound in Build 1. Reduced-motion renderer swaps scaling for a numeric
+    count. Stop is always visible; auto-pauses when the tab is hidden. */
+---
+
+<breathing-pacer class="block">
+  <div class="rounded-card bg-[var(--surface-panel)]/50 p-6 max-w-[40ch] mx-auto text-center">
+    <label class="block text-sm text-[var(--text-muted)] mb-2">
+      Choose a rhythm
+      <select
+        data-protocol
+        class="block w-full mt-1 rounded-soft bg-[var(--surface-raised)] p-2 border border-sage-200"
+      >
+        <option value="physiological-sigh">
+          Physiological sigh — fastest way to settle
+        </option>
+        <option value="coherent">Coherent breathing — slow and even</option>
+        <option value="box">Box breathing — 4-4-4-4</option>
+        <option value="four-seven-eight">4-7-8 — for winding down</option>
+      </select>
+    </label>
+
+    <div class="my-6 grid place-items-center h-52" data-stage-area>
+      <div
+        data-orb
+        class="rounded-full bg-sage-600/70 w-24 h-24 grid place-items-center will-change-transform"
+        style="transition: transform var(--phase, 4s) linear;"
+      >
+        <span data-phase-label class="text-[var(--surface)] font-display text-lg"
+          >Ready</span
+        >
+      </div>
+    </div>
+
+    <p data-count class="text-2xl font-display tabular-nums h-8" aria-live="polite"></p>
+
+    <div class="flex gap-3 justify-center mt-4">
+      <button
+        data-start
+        class="rounded-soft bg-clay-600 text-[var(--surface)] px-5 py-2 border-0 cursor-pointer"
+        >Begin</button
+      >
+      <button
+        data-stop
+        class="rounded-soft bg-[var(--surface-raised)] px-5 py-2 border border-sage-200 cursor-pointer"
+        >Stop</button
+      >
+    </div>
+    <p class="text-sm text-[var(--text-muted)] mt-3 mb-0">
+      There's no goal and no counter. Stop whenever you like.
+    </p>
+  </div>
+</breathing-pacer>
+
+<script>
+  type Phase = { label: string; secs: number; scale: number };
+  const PROTOCOLS: Record<string, Phase[]> = {
+    "physiological-sigh": [
+      { label: "Breathe in", secs: 2, scale: 1.5 },
+      { label: "A little more", secs: 1, scale: 1.7 },
+      { label: "Long breath out", secs: 6, scale: 1 },
+    ],
+    coherent: [
+      { label: "Breathe in", secs: 5.5, scale: 1.7 },
+      { label: "Breathe out", secs: 5.5, scale: 1 },
+    ],
+    box: [
+      { label: "Breathe in", secs: 4, scale: 1.7 },
+      { label: "Hold", secs: 4, scale: 1.7 },
+      { label: "Breathe out", secs: 4, scale: 1 },
+      { label: "Hold", secs: 4, scale: 1 },
+    ],
+    "four-seven-eight": [
+      { label: "Breathe in", secs: 4, scale: 1.7 },
+      { label: "Hold", secs: 7, scale: 1.7 },
+      { label: "Breathe out", secs: 8, scale: 1 },
+    ],
+  };
+
+  class BreathingPacer extends HTMLElement {
+    private timer: number | null = null;
+    private ticker: number | null = null;
+    private reduced =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    connectedCallback() {
+      const start = this.querySelector<HTMLButtonElement>("[data-start]")!;
+      const stop = this.querySelector<HTMLButtonElement>("[data-stop]")!;
+      start.addEventListener("click", () => this.run());
+      stop.addEventListener("click", () => this.reset("Ready"));
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) this.reset("Paused");
+      });
+    }
+
+    private selected(): Phase[] {
+      const sel = this.querySelector<HTMLSelectElement>("[data-protocol]")!;
+      return PROTOCOLS[sel.value];
+    }
+
+    private reset(label: string) {
+      if (this.timer) clearTimeout(this.timer);
+      if (this.ticker) clearInterval(this.ticker);
+      this.timer = this.ticker = null;
+      const orb = this.querySelector<HTMLElement>("[data-orb]")!;
+      orb.style.setProperty("--phase", "0.5s");
+      orb.style.transform = "scale(1)";
+      this.querySelector("[data-phase-label]")!.textContent = label;
+      this.querySelector("[data-count]")!.textContent = "";
+    }
+
+    private run() {
+      this.reset("");
+      const phases = this.selected();
+      const orb = this.querySelector<HTMLElement>("[data-orb]")!;
+      const labelEl = this.querySelector<HTMLElement>("[data-phase-label]")!;
+      const countEl = this.querySelector<HTMLElement>("[data-count]")!;
+      let i = 0;
+
+      const step = () => {
+        const p = phases[i % phases.length];
+        labelEl.textContent = p.label;
+        if (!this.reduced) {
+          orb.style.setProperty("--phase", `${p.secs}s`);
+          orb.style.transform = `scale(${p.scale})`;
+        } else {
+          // Reduced-motion: no scaling; a gentle numeric countdown instead.
+          let remaining = Math.round(p.secs);
+          countEl.textContent = String(remaining);
+          this.ticker = window.setInterval(() => {
+            remaining -= 1;
+            countEl.textContent = remaining > 0 ? String(remaining) : "";
+          }, 1000);
+        }
+        i += 1;
+        this.timer = window.setTimeout(() => {
+          if (this.ticker) clearInterval(this.ticker);
+          step();
+        }, p.secs * 1000);
+      };
+      step();
+    }
+  }
+  customElements.define("breathing-pacer", BreathingPacer);
+</script>

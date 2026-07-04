@@ -1,0 +1,92 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import EvidenceTag from "../../components/EvidenceTag.astro";
+import NOfOneAside from "../../components/NOfOneAside.astro";
+import { url } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const modalities = await getCollection("modalities");
+  return modalities.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const gateLabel: Record<string, string> = {
+  licensed: "Practitioners are licensed clinicians",
+  "certified-unlicensed": "Certified, but not necessarily licensed — check both",
+  unregulated: "An unregulated title — anyone can use it, so check credentials",
+};
+---
+
+<Base
+  title={d.name}
+  description={d.evidenceNote.slice(0, 150)}
+  crumbs={[{ label: "modalities", href: "modalities/" }]}
+>
+  <article>
+    <h1 class="text-3xl sm:text-4xl">{d.name}</h1>
+    <p class="mt-2"><EvidenceTag tier={d.evidenceTier} /></p>
+    <Lead>{d.evidenceNote}</Lead>
+
+    <dl
+      class="grid sm:grid-cols-[10rem_1fr] gap-x-4 gap-y-2 my-6 max-w-[65ch] text-[1rem]"
+    >
+      <dt class="font-bold">Who it tends to fit</dt>
+      <dd class="m-0">{d.whoItTendsToFit}</dd>
+      <dt class="font-bold">Who it may not fit</dt>
+      <dd class="m-0">{d.whoItMayNotFit}</dd>
+      <dt class="font-bold">Cost & access</dt>
+      <dd class="m-0">{d.costAccess}</dd>
+      <dt class="font-bold">Credentials</dt>
+      <dd class="m-0">{gateLabel[d.credentialGate]}</dd>
+    </dl>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {d.founderExperience && <NOfOneAside set:html={d.founderExperience} />}
+
+    {
+      d.freeFirstSteps.length > 0 && (
+        <section class="mt-6 max-w-[65ch]">
+          <h2 class="text-xl">Free first steps</h2>
+          <ul>
+            {d.freeFirstSteps.map((s) => (
+              <li set:html={s.replace(/\*(.+?)\*/g, "<em>$1</em>")} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <p class="mt-6 text-sm text-[var(--text-muted)]">
+      Last reviewed {d.lastReviewed.toISOString().slice(0, 10)}.
+      {
+        d.directoryUrl && (
+          <>
+            {" "}Official practitioner directory:{" "}
+            <a href={d.directoryUrl} rel="noopener">
+              {new URL(d.directoryUrl).host}
+            </a>
+            .
+          </>
+        )
+      }
+    </p>
+
+    <NextSteps>
+      <li><a href={url("modalities/")}>Back to the full directory</a></li>
+      <li><a href={url("about/red-flags/")}>How to evaluate any approach in this space</a></li>
+      <li><a href={url("about/criteria/")}>What these evidence grades mean</a></li>
+    </NextSteps>
+  </article>
+</Base>

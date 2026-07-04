@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import Lead from "../components/Lead.astro";
+import GoDeeper from "../components/GoDeeper.astro";
+import NoticeAside from "../components/NoticeAside.astro";
+import NOfOneAside from "../components/NOfOneAside.astro";
+import EvidenceTag from "../components/EvidenceTag.astro";
+import NextSteps from "../components/NextSteps.astro";
+import { url } from "../lib/url";
+
+const colors = [
+  ["cream-50 (page)", "bg-cream-50"],
+  ["cream-100 (raised)", "bg-cream-100"],
+  ["sage-100 (panel)", "bg-sage-100"],
+  ["sage-200", "bg-sage-200"],
+  ["sage-600", "bg-sage-600"],
+  ["moss-800 (heading)", "bg-moss-800"],
+  ["clay-400", "bg-clay-400"],
+  ["clay-600 (accent)", "bg-clay-600"],
+  ["rose-300", "bg-rose-300"],
+];
+const tiers = [
+  "strong",
+  "moderate",
+  "preliminary",
+  "practitioner-reported",
+  "contested",
+] as const;
+---
+
+<Base
+  title="Style guide"
+  description="The Quiet Delight design system in one place — colors, type, and every recurring component. The reference of record."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Style guide</h1>
+  <Lead>
+    Every token and component the site actually uses, in one place. If
+    something new wants to be added here, something old should probably retire
+    — coherence is a small vocabulary, strictly kept.
+  </Lead>
+
+  <h2 class="text-2xl mt-10">Color</h2>
+  <div class="grid grid-cols-3 sm:grid-cols-3 gap-3 mt-4">
+    {
+      colors.map(([label, bg]) => (
+        <div>
+          <div class:list={[bg, "h-16 rounded-soft border border-sage-200"]} />
+          <p class="text-sm text-[var(--text-muted)] mt-1 mb-0">{label}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2 class="text-2xl mt-10">Type</h2>
+  <p class="font-display text-3xl m-0">Fraunces — display</p>
+  <p class="m-0">Atkinson Hyperlegible Next — body, 18px, 1.65 line-height.</p>
+
+  <h2 class="text-2xl mt-10">Lead</h2>
+  <Lead>This is a lead paragraph — it could be the whole page.</Lead>
+
+  <h2 class="text-2xl mt-10">Evidence tags</h2>
+  <p class="flex flex-wrap gap-2">
+    {tiers.map((t) => <EvidenceTag tier={t} />)}
+  </p>
+
+  <h2 class="text-2xl mt-10">Asides</h2>
+  <NoticeAside>
+    <p class="m-0">A gentle, invitational noticing prompt with an exit.</p>
+  </NoticeAside>
+  <NOfOneAside>
+    <p class="m-0">One person's experience, kept visually separate from evidence.</p>
+  </NOfOneAside>
+
+  <h2 class="text-2xl mt-10">Go deeper</h2>
+  <GoDeeper>
+    <p class="m-0">Optional depth — one disclosure level, never essential content.</p>
+  </GoDeeper>
+
+  <h2 class="text-2xl mt-10">Next steps (the exit ritual)</h2>
+  <NextSteps>
+    <li><a href={url("style/")}>One deeper</a></li>
+    <li><a href={url("style/")}>One sideways</a></li>
+    <li><a href={url("")}>One back to the hub</a></li>
+  </NextSteps>
+</Base>
