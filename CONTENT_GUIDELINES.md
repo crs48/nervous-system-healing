@@ -66,6 +66,42 @@ message is *variation, not verdict.*
 - Clinical modalities (medication-assisted therapies especially) are
   refer-out only — no dosing, no sourcing, no efficacy overclaiming.
 
+## Doors to the regulated state (0009)
+
+The many things that can drop a nervous system into ease — a breath, a
+maneuver, bodywork, a medicine — are **many doors to one room**. Name the
+*room* (the settled, regulated state), not the *vehicle*.
+
+- **Name the room, not the vehicle.** Lead with what the settled state *feels
+  like*; treat any modality as one door to it. Don't rank or sell the doors.
+- **Borrowed state vs. built capacity.** Say plainly when something gives a
+  *visit* rather than *capacity*: "This can show you the room. Learning to
+  find it yourself is the slower, lasting part." A peak experience is a
+  *reference* — a felt target — not a shortcut.
+- **The acute-vs-post-acute honesty.** Ketamine and the classic psychedelics
+  are acutely *activating* (they raise heart rate); the calm is a post-acute,
+  psychological effect, not vagal toning during the session. The somatic doors
+  (a long exhale, tense-and-release) are the ones that settle you *in the
+  moment*. Don't imply a substance is parasympathetically calming as it acts.
+- **The efforting paradox.** Never imply the reader should *force* calm; a
+  door *opening* is not a door *forced*. Trying hard to relax is itself a kind
+  of vigilance.
+
+### Substances are n=1 + mechanism, never how-to
+
+Substance modalities (ketamine, psychedelics, cannabis) are included only as
+honestly-graded phenomenology and mechanism — never as protocols.
+
+- **No dosing, no sourcing, no "how to take it."** Ever.
+- **State the reality:** an honest `legalStatus`, and that "ketamine" here
+  means *clinically supervised*. Name the real risks (cardiovascular,
+  psychosis-vulnerability, destabilization for trauma, dependence) plainly.
+- **The founder's account is `NOfOneAside` only**, sitting next to the
+  evidence badge — the felt benefit can be real even where mechanism claims
+  don't hold up. Both lines belong on the page.
+- **Always end on a free door** — `freeFirstSteps` must point to something the
+  reader can do today at no cost and no risk.
+
 ## Page anatomy (0007)
 
 Every content page: breadcrumb → H1 → **lead that could be the whole page**

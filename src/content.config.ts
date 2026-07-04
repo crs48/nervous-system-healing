@@ -34,8 +34,14 @@ const modalities = defineCollection({
       "movement",
       "breath",
       "medical",
+      "substance",
       "framework",
     ]),
+    // Only set for substance/medical modalities; drives an honest legality
+    // note on the page (0009). Never a how-to — see CONTENT_GUIDELINES.md.
+    legalStatus: z
+      .enum(["prescription-only", "research-only", "illegal", "varies"])
+      .optional(),
     evidenceTier: z.enum([
       "strong",
       "moderate",

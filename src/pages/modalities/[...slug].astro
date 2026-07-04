@@ -24,6 +24,14 @@ const gateLabel: Record<string, string> = {
   "certified-unlicensed": "Certified, but not necessarily licensed — check both",
   unregulated: "An unregulated title — anyone can use it, so check credentials",
 };
+
+const legalLabel: Record<string, string> = {
+  "prescription-only": "Prescription-only, and only in a supervised clinical setting",
+  "research-only":
+    "Legal only within approved research or regulated programs; a controlled substance otherwise",
+  illegal: "A controlled substance in most places",
+  varies: "Legal status varies a lot by where you are",
+};
 ---
 
 <Base
@@ -45,6 +53,14 @@ const gateLabel: Record<string, string> = {
       <dd class="m-0">{d.whoItMayNotFit}</dd>
       <dt class="font-bold">Cost & access</dt>
       <dd class="m-0">{d.costAccess}</dd>
+      {
+        d.legalStatus && (
+          <>
+            <dt class="font-bold">Legal status</dt>
+            <dd class="m-0">{legalLabel[d.legalStatus]}</dd>
+          </>
+        )
+      }
       <dt class="font-bold">Credentials</dt>
       <dd class="m-0">{gateLabel[d.credentialGate]}</dd>
     </dl>

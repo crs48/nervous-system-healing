@@ -4,6 +4,7 @@ import Base from "../../layouts/Base.astro";
 import Lead from "../../components/Lead.astro";
 import NextSteps from "../../components/NextSteps.astro";
 import EvidenceTag from "../../components/EvidenceTag.astro";
+import DoorsMap from "../../components/DoorsMap.astro";
 import { url } from "../../lib/url";
 
 const modalities = (await getCollection("modalities")).sort((a, b) =>
@@ -35,6 +36,8 @@ modalities.sort(
     you spend anything, it's worth reading
     <a href={url("about/red-flags/")}>how to spot red flags</a> in this space.
   </Lead>
+
+  <DoorsMap />
 
   <p class="text-sm text-[var(--text-muted)] mt-4">
     Sorted by strength of evidence. <a href={url("about/criteria/")}
