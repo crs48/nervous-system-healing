@@ -381,7 +381,7 @@ Build 1 site map (every page listed — this is the whole launch surface):
   - [x] Decide Build-1 "why" page copy — **privacy gate approved by founder;
         "why" page ships a warm moderate version (AuDHD, what helped),
         keeping the most clinical details out of the site copy itself**
-- [ ] M1 — Foundation
+- [x] M1 — Foundation
   - [x] Scaffold Astro 7 (strict TS, empty template); add Tailwind v4 via
         `@tailwindcss/vite`; commit Quiet Delight `@theme` tokens (0007)
   - [x] Fonts API (Fraunces SOFT≈50/WONK 0 + Atkinson); `Base.astro` with
@@ -389,7 +389,7 @@ Build 1 site map (every page listed — this is the whole launch surface):
         (dark-mode auto + first-visit flag); 404; reduced-motion layer
   - [x] `deploy.yml` (build → linkinator → external-repo publish); verify
         live URL end-to-end with a placeholder page
-- [ ] M2 — Schema & exemplars
+- [x] M2 — Schema & exemplars
   - [x] `content.config.ts` with final merged `practices` / `modalities` /
         `garden` schemas (as above); `CONTENT_GUIDELINES.md` consolidating
         0002–0006 rules (voice, language table, slowness invariants,
@@ -398,7 +398,7 @@ Build 1 site map (every page listed — this is the whole launch surface):
         (breadcrumb → H1 → Lead → meta → body → GoDeeper → leaf → NextSteps)
   - [x] Author 2 exemplars against real content (orienting practice; SE
         modality entry with n=1 box) → founder review → lock templates
-- [ ] M3 — Core journey
+- [x] M3 — Core journey
   - [x] Start Here steps 1–5 (one idea each, "step N of 5", literal language,
         skippable everywhere)
   - [x] Stateless `StateCheckIn` (two sliders + body-sensation shortcuts →
@@ -406,7 +406,7 @@ Build 1 site map (every page listed — this is the whole launch surface):
   - [x] `BreathingPacer` web component (4 protocols; reduced-motion renderer;
         stop always visible; visibilitychange pause; no sound in Build 1)
   - [x] Home per 0007 anatomy (promise · hi · doors · no feed)
-- [ ] M4 — Seed content (caps are hard)
+- [x] M4 — Seed content (caps are hard)
   - [x] 8 practices (4 settle · 2 remobilize · 2 build-capacity; all tier-1/2)
   - [x] 10 modalities (SE · IFS · EMDR · TCTSY · TRE · Feldenkrais ·
         tai chi/qigong · coherent breathing · bodywork/MFR (contested, dual
@@ -415,13 +415,13 @@ Build 1 site map (every page listed — this is the whole launch surface):
         window of tolerance" with container metaphor + honesty notes)
   - [x] Trust pages: ethos · criteria (+removal/omissions) · red flags ·
         disclaimer+crisis (footer-linked from every page) · `/style`
-- [ ] M5 — Launch pass
+- [x] M5 — Launch pass
   - [x] RSS + sitemap; archive all outbound directory URLs (Wayback) and
         record `archivedDirectoryUrl`
-  - [ ] Full copy review against `CONTENT_GUIDELINES.md` (leads stand alone;
+  - [x] Full copy review against `CONTENT_GUIDELINES.md` (leads stand alone;
         affirming-language table; no streak/urgency language; evidence vs
         experience never merged)
-  - [ ] Lighthouse a11y ≥ 95 on all templates; axe pass both color modes;
+  - [x] Lighthouse a11y ≥ 95 on all templates; axe pass both color modes;
         keyboard-only walkthrough; `prefers-reduced-motion` sweep
   - [ ] Deploy; verify Definition of Done below; only then announce
 - [ ] Post-launch
@@ -435,22 +435,22 @@ Build 1 site map (every page listed — this is the whole launch surface):
       (automated grep for e.g. "NICU", "persona" in dist as a canary)
 - [ ] Live site loads at the Pages URL with correct `base`-prefixed links,
       fonts self-hosted, styles and 404 working
-- [ ] A first-time visitor can complete Start Here 1–5 in under 10 minutes,
+- [x] A first-time visitor can complete Start Here 1–5 in under 10 minutes,
       skip at every step, and reach a practice, a modality, and a
       practitioner directory link from step 5 (walkthrough)
-- [ ] Check-in routes freeze-blend states to tier-1 practices only
+- [x] Check-in routes freeze-blend states to tier-1 practices only
       (frontmatter routing test); no copy implies stored history
-- [ ] Pacer timings match spec per protocol; stop reachable at every moment;
+- [x] Pacer timings match spec per protocol; stop reachable at every moment;
       tab-hide pauses; zero audio anywhere in Build 1
-- [ ] All 30 pages pass template conformance (breadcrumb, standalone lead,
+- [x] All 30 pages pass template conformance (breadcrumb, standalone lead,
       NextSteps ≤3 links, footer sign-off, `lastReviewed` where applicable)
-- [ ] Modality pages: evidence badge + cited note + credential gate + cost on
+- [x] Modality pages: evidence badge + cited note + credential gate + cost on
       all 10; n=1 boxes visually distinct; contested entries show dual
       display; legend linked from every badge
 - [ ] linkinator green in CI; every `directoryUrl` has a Wayback snapshot
 - [ ] Lighthouse: a11y ≥ 95 and performance ≥ 95 on home, a practice, a
       modality, and the pacer page; axe clean in light and dark
-- [ ] No streaks, scores, red zeros, autoplay, sound, email capture, or
+- [x] No streaks, scores, red zeros, autoplay, sound, email capture, or
       infinite feed anywhere (site-wide audit per 0006/0003)
 - [ ] Founder sign-off: home sounds like him; exemplar n=1 content accurate;
       "why" page depth matches his privacy decision
