@@ -407,16 +407,16 @@ Build 1 site map (every page listed — this is the whole launch surface):
         stop always visible; visibilitychange pause; no sound in Build 1)
   - [x] Home per 0007 anatomy (promise · hi · doors · no feed)
 - [ ] M4 — Seed content (caps are hard)
-  - [ ] 8 practices (4 settle · 2 remobilize · 2 build-capacity; all tier-1/2)
-  - [ ] 10 modalities (SE · IFS · EMDR · TCTSY · TRE · Feldenkrais ·
+  - [x] 8 practices (4 settle · 2 remobilize · 2 build-capacity; all tier-1/2)
+  - [x] 10 modalities (SE · IFS · EMDR · TCTSY · TRE · Feldenkrais ·
         tai chi/qigong · coherent breathing · bodywork/MFR (contested, dual
         display) · polyvagal-informed (framework note)); index + legend
-  - [ ] 2 learn pieces ("Meet your states" with blends; "Capacity & the
+  - [x] 2 learn pieces ("Meet your states" with blends; "Capacity & the
         window of tolerance" with container metaphor + honesty notes)
-  - [ ] Trust pages: ethos · criteria (+removal/omissions) · red flags ·
+  - [x] Trust pages: ethos · criteria (+removal/omissions) · red flags ·
         disclaimer+crisis (footer-linked from every page) · `/style`
 - [ ] M5 — Launch pass
-  - [ ] RSS + sitemap; archive all outbound directory URLs (Wayback) and
+  - [x] RSS + sitemap; archive all outbound directory URLs (Wayback) and
         record `archivedDirectoryUrl`
   - [ ] Full copy review against `CONTENT_GUIDELINES.md` (leads stand alone;
         affirming-language table; no streak/urgency language; evidence vs
