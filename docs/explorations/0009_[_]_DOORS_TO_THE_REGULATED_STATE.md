@@ -651,9 +651,9 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
         anchor (`series: "doors-to-regulation"`, `type: "field-guide"`)
   - [ ] Opt-in in-body demo (`long-exhale` or `hold-and-release`) — link out,
         or add a breath value to the `demo` enum; reduced-motion safe
-- [ ] Practices
+- [x] Practices
   - [x] `long-exhale.md` — already shipped
-  - [ ] `hold-and-release.md` — new; safety block in **body prose**
+  - [x] `hold-and-release.md` — new; safety block in **body prose**
         (cardiovascular, hypertension, glaucoma/retinal, pregnancy; not in
         water; capped hold) and the Valsalva/PMR/long-exhale `whyItWorks`
 - [ ] `modalities` entries (each: `founderExperience` n=1 + `evidenceTier` +
