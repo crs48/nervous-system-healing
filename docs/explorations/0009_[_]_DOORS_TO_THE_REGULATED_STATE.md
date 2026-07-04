@@ -645,11 +645,11 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
   - [x] Add the substance editorial policy (no protocols/dosing/sourcing;
         legality + medical framing; mandatory pivot to a `freeFirstSteps` door)
         to the content review gate
-- [ ] `garden` field-guide series — "Doors to the Regulated State"
-  - [ ] "Name the room" essay: the ventral-vagal felt sense vs. fight-flight
+- [x] `garden` field-guide series — "Doors to the Regulated State"
+  - [x] "Name the room" essay: the ventral-vagal felt sense vs. fight-flight
         vs. freeze, with the polyvagal-honesty note and window-of-tolerance
         anchor (`series: "doors-to-regulation"`, `type: "field-guide"`)
-  - [ ] Opt-in in-body demo (`long-exhale` or `hold-and-release`) — link out,
+  - [x] Opt-in in-body demo (`long-exhale` or `hold-and-release`) — link out,
         or add a breath value to the `demo` enum; reduced-motion safe
 - [x] Practices
   - [x] `long-exhale.md` — already shipped
