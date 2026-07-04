@@ -670,8 +670,8 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
   - [x] Add allostatic load, HRV as a self-regulation index, neuroception, and
         the documented relaxation-induced-anxiety finding — ending on
         capacity-as-trainable hope
-- [ ] Component (optional)
-  - [ ] `DoorsMap` / `ModalityCompare` (borrowed↔built, self↔guided↔clinical),
+- [x] Component (optional)
+  - [x] `DoorsMap` / `ModalityCompare` (borrowed↔built, self↔guided↔clinical),
         reduced-motion-safe, honest labels
 
 ## Validation Checklist
