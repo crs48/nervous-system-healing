@@ -370,12 +370,17 @@ Build 1 site map (every page listed — this is the whole launch surface):
 
 ## Implementation Checklist
 
-- [ ] M0 — Repos & topology
-  - [ ] Founder picks public site-repo name (fixes URL/base)
-  - [ ] Create public site repo; generate deploy key; add secret to this
-        (private) repo; confirm this repo has no public remote
-  - [ ] Decide Build-1 "why" page copy = minimal intro (fuller story awaits
-        0002 privacy approval)
+- [x] M0 — Repos & topology
+  - [x] Founder picks public site-repo name (fixes URL/base) — **decision
+        2026-07-04: founder chose "keep public as-is"; deploy Pages directly
+        from this repo; URL = crs48.github.io/nervous-system-healing/**
+  - [x] Repo topology settled — **founder explicitly approved this repo
+        remaining public (including the exploration docs), so option A2's
+        two-repo split is unnecessary; same-repo Pages deploy (0001 pattern)
+        is canonical**
+  - [x] Decide Build-1 "why" page copy — **privacy gate approved by founder;
+        "why" page ships a warm moderate version (AuDHD, what helped),
+        keeping the most clinical details out of the site copy itself**
 - [ ] M1 — Foundation
   - [ ] Scaffold Astro 7 (strict TS, empty template); add Tailwind v4 via
         `@tailwindcss/vite`; commit Quiet Delight `@theme` tokens (0007)
