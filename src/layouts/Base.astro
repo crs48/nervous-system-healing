@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
-import "@fontsource-variable/fraunces";
-import "@fontsource/atkinson-hyperlegible-next/400.css";
-import "@fontsource/atkinson-hyperlegible-next/500.css";
-import "@fontsource/atkinson-hyperlegible-next/700.css";
+// Latin-only subsets keep the @font-face set small (0007: lean, fast).
+import "@fontsource-variable/fraunces/wght.css";
+import "@fontsource/atkinson-hyperlegible-next/latin-400.css";
+import "@fontsource/atkinson-hyperlegible-next/latin-500.css";
+import "@fontsource/atkinson-hyperlegible-next/latin-700.css";
 import { url } from "../lib/url";
 
 interface Props {
