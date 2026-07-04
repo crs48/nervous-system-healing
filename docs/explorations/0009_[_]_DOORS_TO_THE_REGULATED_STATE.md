@@ -656,14 +656,14 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
   - [x] `hold-and-release.md` — new; safety block in **body prose**
         (cardiovascular, hypertension, glaucoma/retinal, pregnancy; not in
         water; capped hold) and the Valsalva/PMR/long-exhale `whyItWorks`
-- [ ] `modalities` entries (each: `founderExperience` n=1 + `evidenceTier` +
+- [x] `modalities` entries (each: `founderExperience` n=1 + `evidenceTier` +
       `evidenceNote` + `legalStatus` + `freeFirstSteps`)
   - [x] `bodywork-myofascial.md` — already shipped (contested; founder note);
         optionally extend with breathing-mechanics/interoception detail
-  - [ ] Ketamine (clinical; NMDA→BDNF/mTOR plasticity; acute-vs-post-acute)
-  - [ ] 5-MeO-DMT (research; 5-HT1A-dominant "held"; reference-experience frame)
-  - [ ] Cannabis (biphasic, "mixed" explained)
-  - [ ] LSD & psilocybin (2A + sympathomimetic; "higher resolution but
+  - [x] Ketamine (clinical; NMDA→BDNF/mTOR plasticity; acute-vs-post-acute)
+  - [x] 5-MeO-DMT (research; 5-HT1A-dominant "held"; reference-experience frame)
+  - [x] Cannabis (biphasic, "mixed" explained)
+  - [x] LSD & psilocybin (2A + sympathomimetic; "higher resolution but
         jittery"; DMN/entropic brain; afterglow)
 - [ ] "Why capacity is limited" — **extend** the existing
       [`capacity-and-the-window-of-tolerance.md`](src/content/garden/capacity-and-the-window-of-tolerance.md)
