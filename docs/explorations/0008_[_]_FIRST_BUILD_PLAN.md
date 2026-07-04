@@ -382,9 +382,9 @@ Build 1 site map (every page listed — this is the whole launch surface):
         "why" page ships a warm moderate version (AuDHD, what helped),
         keeping the most clinical details out of the site copy itself**
 - [ ] M1 — Foundation
-  - [ ] Scaffold Astro 7 (strict TS, empty template); add Tailwind v4 via
+  - [x] Scaffold Astro 7 (strict TS, empty template); add Tailwind v4 via
         `@tailwindcss/vite`; commit Quiet Delight `@theme` tokens (0007)
-  - [ ] Fonts API (Fraunces SOFT≈50/WONK 0 + Atkinson); `Base.astro` with
+  - [x] Fonts API (Fraunces SOFT≈50/WONK 0 + Atkinson); `Base.astro` with
         entry/exit rituals, warm footer sign-off, pre-paint script
         (dark-mode auto + first-visit flag); 404; reduced-motion layer
   - [ ] `deploy.yml` (build → linkinator → external-repo publish); verify

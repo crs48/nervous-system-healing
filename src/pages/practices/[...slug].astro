@@ -1,0 +1,90 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import GoDeeper from "../../components/GoDeeper.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const practices = await getCollection("practices");
+  return practices.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const stateLabels: Record<string, string> = {
+  settle: "settling",
+  remobilize: "gentle re-mobilizing",
+  "build-capacity": "building capacity",
+  "freeze-blend": "wired & tired",
+};
+---
+
+<Base
+  title={d.title}
+  description={d.whyItWorks.slice(0, 150)}
+  crumbs={[{ label: "practices", href: "practices/" }]}
+>
+  <article>
+    <h1 class="text-3xl sm:text-4xl">{d.title}</h1>
+    <Lead>
+      About {d.durationMinutes}
+      {d.durationMinutes === 1 ? "minute" : "minutes"}, {
+        d.posture === "any" ? "in any position" : d.posture
+      }.
+      {d.soundContent === "none" ? "No sound." : `Uses ${d.soundContent}.`}
+      Moving, rocking, or fidgeting while you do it is welcome. You can stop
+      at any time.
+    </Lead>
+
+    <p class="flex flex-wrap gap-2 text-sm">
+      <span class="rounded-full bg-[var(--surface-panel)] px-3 py-0.5"
+        >~{d.durationMinutes} min</span
+      >
+      {
+        d.states.map((s) => (
+          <a
+            href={url(`practices/#${s}`)}
+            class="rounded-full bg-[var(--surface-raised)] px-3 py-0.5 no-underline text-[var(--text-muted)]"
+          >
+            for {stateLabels[s]}
+          </a>
+        ))
+      }
+      <span class="rounded-full bg-[var(--surface-raised)] px-3 py-0.5 text-[var(--text-muted)]"
+        >gentleness tier {d.sequenceTier} of 3</span
+      >
+    </p>
+
+    <div class="prose mt-6">
+      <Content />
+    </div>
+
+    <GoDeeper label="Why this works →">
+      <p>{d.whyItWorks}</p>
+      <p class="text-sm text-[var(--text-muted)]">
+        Lineage: {d.source}. Last reviewed {
+          d.lastReviewed.toISOString().slice(0, 10)
+        }.
+      </p>
+    </GoDeeper>
+
+    <NextSteps>
+      <li>
+        <a href={url("practices/")}>More practices, sorted by state</a>
+      </li>
+      <li>
+        <a href={url("learn/meet-your-states/")}
+          >Understand the states this works with</a
+        >
+      </li>
+      <li><a href={url("start/")}>Or start from the beginning</a></li>
+    </NextSteps>
+  </article>
+</Base>

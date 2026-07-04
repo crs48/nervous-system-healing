@@ -52,8 +52,8 @@ const modalities = defineCollection({
     costAccess: z.string(),
     whoItTendsToFit: z.string(),
     whoItMayNotFit: z.string(),
-    directoryUrl: z.string().url().optional(),
-    archivedDirectoryUrl: z.string().url().optional(),
+    directoryUrl: z.url().optional(),
+    archivedDirectoryUrl: z.url().optional(),
     founderExperience: z.string().optional(),
     freeFirstSteps: z.array(z.string()).default([]),
     lastReviewed: z.coerce.date(),
@@ -77,7 +77,7 @@ const garden = defineCollection({
     lastTended: z.coerce.date().optional(),
     lastReviewed: z.coerce.date(),
     sources: z
-      .array(z.object({ label: z.string(), url: z.string().url() }))
+      .array(z.object({ label: z.string(), url: z.url() }))
       .default([]),
   }),
 });

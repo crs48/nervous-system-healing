@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { url } from "../lib/url";
+
+interface Props {
+  entry: CollectionEntry<"practices">;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+---
+
+<a
+  href={url(`practices/${entry.id}/`)}
+  class="block rounded-card bg-[var(--surface-raised)] p-5 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
+>
+  <p class="font-display text-lg text-[var(--heading)] m-0">{d.title}</p>
+  <p class="mt-1 mb-0 text-sm text-[var(--text-muted)]">
+    ~{d.durationMinutes} min · {d.posture === "any" ? "any position" : d.posture} ·
+    {d.soundContent === "none" ? "silent" : d.soundContent}
+  </p>
+</a>
