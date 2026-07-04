@@ -676,32 +676,32 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
 
 ## Validation Checklist
 
-- [ ] No substance `modalities` entry contains dosing, sourcing, or how-to;
+- [x] No substance `modalities` entry contains dosing, sourcing, or how-to;
       each has a `founderExperience` (n=1), an honest `evidenceTier`, a
       `legalStatus`/medical note, and `freeFirstSteps` (copy review, every entry)
-- [ ] The `hold-and-release` practice states the full safety block in body prose
+- [x] The `hold-and-release` practice states the full safety block in body prose
       prominently (per the `pushing-a-wall.md` convention), including the
       water/standing warning
-- [ ] `evidenceTier` is set honestly: ketamine (`moderate`) graded stronger than
+- [x] `evidenceTier` is set honestly: ketamine (`moderate`) graded stronger than
       5-MeO/LSD/psilocybin (`preliminary`); bodywork/craniosacral/energy work
       `contested`, graded as felt-sense, not proven
-- [ ] Polyvagal language appears with its honesty flag; load-bearing capacity
+- [x] Polyvagal language appears with its honesty flag; load-bearing capacity
       claims cite window-of-tolerance / HRV, not polyvagal specifics
-- [ ] The borrowed-state-vs-built-capacity distinction appears in every
+- [x] The borrowed-state-vs-built-capacity distinction appears in every
       modality piece and the pillar intro; no piece implies a substance is a
       shortcut that replaces the slow work
-- [ ] If any inline felt demo is added, 0004's safety-gate exists and the demo
+- [x] If any inline felt demo is added, 0004's safety-gate exists and the demo
       is reduced-motion safe; a reader can open it, and skip it, freely
       (otherwise the essay links out to the practice)
-- [ ] A first-time reader can, after the pillar, describe the ventral-vagal
+- [x] A first-time reader can, after the pillar, describe the ventral-vagal
       state in their own words and name one free door they can open today
       (comprehension check)
-- [ ] Nothing reads as glamorizing drug use; the afterglow/state-vs-trait
+- [x] Nothing reads as glamorizing drug use; the afterglow/state-vs-trait
       evidence sits beside every peak-experience description
-- [ ] Every substance piece states the acute-vs-post-acute distinction — that
+- [x] Every substance piece states the acute-vs-post-acute distinction — that
       ketamine/psychedelics are acutely activating and the calm is post-acute
       and psychological, not vagal toning during the session
-- [ ] The somatic doors (Valsalva release, long exhale, PMR) are the ones
+- [x] The somatic doors (Valsalva release, long exhale, PMR) are the ones
       described as measurably parasympathetic in the moment; the vagal/
       interoception/allostatic-load link for substances is labeled theoretical
 

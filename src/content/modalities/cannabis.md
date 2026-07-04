@@ -4,7 +4,7 @@ category: "substance"
 legalStatus: "varies"
 evidenceTier: "preliminary"
 evidenceNote: >
-  Cannabis has a well-documented *biphasic* effect: through the CB1 receptor,
+  Cannabis has a well-documented biphasic (dose-dependent) effect: through the CB1 receptor,
   lower doses tend to calm and embody, while higher doses tend to do the
   opposite — racing thoughts, heightened vigilance, sometimes anxiety or panic.
   That's the mechanism behind why the same substance can feel grounding one

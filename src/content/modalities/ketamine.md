@@ -7,10 +7,10 @@ evidenceNote: >
   There's solid evidence that ketamine can lift depression quickly, working
   through a burst of brain plasticity (NMDA → glutamate → BDNF/mTOR →
   new synaptic connections) rather than the slow route older antidepressants
-  take. Two honest caveats: as it acts, ketamine actually *raises* heart rate
+  take. Two honest caveats: as it acts, ketamine actually raises heart rate
   and blood pressure — the settled, okay-to-exist feeling is a post-session,
   psychological effect (relief from rumination, a looser sense of self), not a
-  calming of the body in the moment. And ketamine-assisted *psychotherapy*
+  calming of the body in the moment. And ketamine-assisted psychotherapy
   specifically — the therapy wrapped around the dose — has much thinner
   evidence than the drug effect itself.
 credentialGate: "licensed"
