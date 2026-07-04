@@ -50,34 +50,38 @@
   }
 }
 
-body {
-  background: var(--surface);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  line-height: 1.65;
-}
+/* Base element styling lives in @layer base so Tailwind utilities
+   (e.g. .no-underline on card links) can still override it. */
+@layer base {
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display);
-  font-variation-settings: "SOFT" 50, "WONK" 0;
-  color: var(--heading);
-  line-height: 1.2;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+    color: var(--heading);
+    line-height: 1.2;
+  }
 
-a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 250ms var(--ease-gentle);
-}
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 250ms var(--ease-gentle);
+  }
 
-::selection {
-  background: var(--color-sage-200);
-  color: var(--color-moss-800);
+  ::selection {
+    background: var(--color-sage-200);
+    color: var(--color-moss-800);
+  }
 }
 
 /* Long-form prose defaults (warm typography plugin overrides) */
