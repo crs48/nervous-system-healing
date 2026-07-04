@@ -1,0 +1,56 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="Change is possible, slowly"
+  description="Step five: nervous system patterns can change — gradually, with small and regular practice — and here's where to go next."
+  crumbs={[
+    { label: "home", href: "" },
+    { label: "start here", href: "start/" },
+  ]}
+>
+  <h1 class="text-3xl sm:text-4xl">Change is possible — slowly.</h1>
+  <Lead>
+    A stuck pattern isn't permanent. Nervous systems are shaped by repetition,
+    which means they can be re-shaped by repetition too — gently, in small
+    doses, over time. Not in a weekend. But genuinely, and often more than
+    people expect.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      The word that matters here is <strong>slow</strong>. This work rewards
+      small and regular far more than big and forceful — in fact, pushing too
+      hard tends to backfire, because a system can't feel safe while it's
+      being strained. "Less is more, and slower is better" is close to a
+      motto in this world. With a nervous system, slower usually <em>is</em>
+      the fast way.
+    </p>
+    <p>
+      You don't have to figure it all out today. You've already done the first
+      thing that matters — you've started paying attention. From here, you
+      might try a short practice, read a little more, or, when you're ready,
+      look into working with a person.
+    </p>
+  </div>
+
+  <NextSteps>
+    <li>
+      <a href={url("practices/")}>Try a short practice</a> — two to five
+      minutes, matched to how you're arriving
+    </li>
+    <li>
+      <a href={url("learn/capacity-and-the-window-of-tolerance/")}
+        >Read about capacity</a
+      > — why slow works, and what "widening the window" means
+    </li>
+    <li>
+      <a href={url("modalities/")}>Look into deeper support</a> — an honest
+      guide to therapies and how to find practitioners
+    </li>
+  </NextSteps>
+</Base>

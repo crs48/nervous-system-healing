@@ -1,0 +1,50 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import GoDeeper from "../../components/GoDeeper.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import BreathingPacer from "../../components/BreathingPacer.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="A breathing pacer"
+  description="A gentle visual breathing pacer with four rhythms, including the physiological sigh. No sound, no counting, stop whenever."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">A breathing pacer</h1>
+  <Lead>
+    A shape to breathe along with, at four different rhythms. There's no sound
+    and nothing to count — just follow it as loosely as you like, and stop
+    whenever you want. If following your breath ever feels worse rather than
+    better, that's real information: let it go and try
+    <a href={url("practices/orienting/")}>looking slowly around the room</a>
+    instead.
+  </Lead>
+
+  <div class="mt-8">
+    <BreathingPacer />
+  </div>
+
+  <GoDeeper label="Why a longer exhale settles you →">
+    <p>
+      When your out-breath is longer than your in-breath, it gently nudges the
+      "rest and digest" side of your nervous system. The
+      <strong>physiological sigh</strong> — two breaths in, then a long breath
+      out — is one of the faster ways to bring activation down in the moment.
+      Coherent breathing (slow and even, around five and a half breaths a
+      minute) is less about a quick shift and more about steadiness over a few
+      minutes.
+    </p>
+  </GoDeeper>
+
+  <NextSteps>
+    <li><a href={url("practices/")}>More short practices</a></li>
+    <li>
+      <a href={url("learn/capacity-and-the-window-of-tolerance/")}
+        >Why slow and regular beats hard and rare</a
+      >
+    </li>
+    <li><a href={url("")}>Back home</a></li>
+  </NextSteps>
+</Base>

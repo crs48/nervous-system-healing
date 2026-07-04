@@ -1,0 +1,45 @@
+---
+import { url } from "../lib/url";
+interface Props {
+  step: number; // 1-based
+}
+const { step } = Astro.props;
+const total = 5;
+const steps = [
+  "1-you-have-a-nervous-system",
+  "2-meet-the-states",
+  "3-states-shift-all-day",
+  "4-where-might-you-be",
+  "5-change-is-possible",
+];
+const prev = step > 1 ? steps[step - 2] : null;
+const next = step < total ? steps[step] : null;
+---
+
+<nav
+  aria-label="Path progress"
+  class="mt-12 flex items-center justify-between gap-4 text-sm max-w-[65ch]"
+>
+  <div>
+    {
+      prev ? (
+        <a href={url(`start/${prev}/`)}>← back a step</a>
+      ) : (
+        <a href={url("start/")}>← path intro</a>
+      )
+    }
+  </div>
+  <div class="text-[var(--text-muted)]">step {step} of {total}</div>
+  <div>
+    {
+      next ? (
+        <a href={url(`start/${next}/`)}>next step →</a>
+      ) : (
+        <span class="text-[var(--text-muted)]">you're at the end 🍃</span>
+      )
+    }
+  </div>
+</nav>
+<p class="text-sm text-[var(--text-muted)] mt-3 max-w-[65ch]">
+  You can leave the path at any step — nothing here is required.
+</p>

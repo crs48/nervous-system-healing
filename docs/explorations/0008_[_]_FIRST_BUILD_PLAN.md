@@ -387,16 +387,16 @@ Build 1 site map (every page listed — this is the whole launch surface):
   - [x] Fonts API (Fraunces SOFT≈50/WONK 0 + Atkinson); `Base.astro` with
         entry/exit rituals, warm footer sign-off, pre-paint script
         (dark-mode auto + first-visit flag); 404; reduced-motion layer
-  - [ ] `deploy.yml` (build → linkinator → external-repo publish); verify
+  - [x] `deploy.yml` (build → linkinator → external-repo publish); verify
         live URL end-to-end with a placeholder page
 - [ ] M2 — Schema & exemplars
-  - [ ] `content.config.ts` with final merged `practices` / `modalities` /
+  - [x] `content.config.ts` with final merged `practices` / `modalities` /
         `garden` schemas (as above); `CONTENT_GUIDELINES.md` consolidating
         0002–0006 rules (voice, language table, slowness invariants,
         lead-stands-alone, evidence/experience separation)
-  - [ ] Practice, modality, and garden templates with fixed anatomy
+  - [x] Practice, modality, and garden templates with fixed anatomy
         (breadcrumb → H1 → Lead → meta → body → GoDeeper → leaf → NextSteps)
-  - [ ] Author 2 exemplars against real content (orienting practice; SE
+  - [x] Author 2 exemplars against real content (orienting practice; SE
         modality entry with n=1 box) → founder review → lock templates
 - [ ] M3 — Core journey
   - [ ] Start Here steps 1–5 (one idea each, "step N of 5", literal language,

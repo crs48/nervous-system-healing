@@ -1,0 +1,43 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import StepNav from "../../components/StepNav.astro";
+---
+
+<Base
+  title="You have a nervous system"
+  description="Step one of the path: you have a nervous system, and it's quietly shaping how every moment feels."
+  crumbs={[
+    { label: "home", href: "" },
+    { label: "start here", href: "start/" },
+  ]}
+>
+  <h1 class="text-3xl sm:text-4xl">You have a nervous system.</h1>
+  <Lead>
+    Right now, under everything you're thinking about, your nervous system is
+    doing its constant job: checking whether you're safe, and setting the
+    background tone of the moment accordingly. You don't decide this
+    consciously. It's been running since before you had words.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      Most of us were never told this part plainly, so here it is: a large
+      amount of how you feel — calm or on edge, open or braced, rested or
+      wired — isn't really about willpower or attitude. It's your nervous
+      system's read on the situation, happening faster than thought.
+    </p>
+    <p>
+      That's not a flaw or a diagnosis. It's how bodies work. And it's oddly
+      good news, because it means "just think positive" was never going to be
+      the whole answer — and it isn't your fault that it wasn't enough.
+    </p>
+    <p>
+      The rest of this short path is about getting familiar with that system:
+      what its different states feel like, how they move through a normal day,
+      and how — slowly — a stuck pattern can begin to change.
+    </p>
+  </div>
+
+  <StepNav step={1} />
+</Base>
