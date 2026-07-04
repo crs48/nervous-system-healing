@@ -633,11 +633,11 @@ Copy conventions (append to `CONTENT_GUIDELINES.md`):
 
 ## Implementation Checklist
 
-- [ ] Schema extension (in [`src/content.config.ts`](src/content.config.ts))
-  - [ ] Add a substance-suitable value to `modalities.category` (e.g.
+- [x] Schema extension (in [`src/content.config.ts`](src/content.config.ts))
+  - [x] Add a substance-suitable value to `modalities.category` (e.g.
         `substance`) and an optional `legalStatus` field
         (`prescription-only | research-only | illegal | varies`)
-  - [ ] Decide whether the `practices` schema should gain an explicit
+  - [x] Decide whether the `practices` schema should gain an explicit
         `contraindications` field or keep safety in body prose (see Risks)
 - [ ] Guidelines
   - [ ] Append copy conventions (name-the-room, borrowed-vs-built, substances =
