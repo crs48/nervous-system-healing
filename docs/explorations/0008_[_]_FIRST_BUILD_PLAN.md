@@ -399,13 +399,13 @@ Build 1 site map (every page listed — this is the whole launch surface):
   - [x] Author 2 exemplars against real content (orienting practice; SE
         modality entry with n=1 box) → founder review → lock templates
 - [ ] M3 — Core journey
-  - [ ] Start Here steps 1–5 (one idea each, "step N of 5", literal language,
+  - [x] Start Here steps 1–5 (one idea each, "step N of 5", literal language,
         skippable everywhere)
-  - [ ] Stateless `StateCheckIn` (two sliders + body-sensation shortcuts →
+  - [x] Stateless `StateCheckIn` (two sliders + body-sensation shortcuts →
         named blend reflection → tier-safe routed practice links)
-  - [ ] `BreathingPacer` web component (4 protocols; reduced-motion renderer;
+  - [x] `BreathingPacer` web component (4 protocols; reduced-motion renderer;
         stop always visible; visibilitychange pause; no sound in Build 1)
-  - [ ] Home per 0007 anatomy (promise · hi · doors · no feed)
+  - [x] Home per 0007 anatomy (promise · hi · doors · no feed)
 - [ ] M4 — Seed content (caps are hard)
   - [ ] 8 practices (4 settle · 2 remobilize · 2 build-capacity; all tier-1/2)
   - [ ] 10 modalities (SE · IFS · EMDR · TCTSY · TRE · Feldenkrais ·

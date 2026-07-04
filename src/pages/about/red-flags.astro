@@ -1,0 +1,60 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+
+const flags = [
+  ["Cure-all promises", "Real nervous-system work is slow and specific. Anything promising to fix trauma, chronic illness, or your whole life fast is overreaching."],
+  ["Pressure and urgency", "Countdown timers, 'doors close tonight', high-pressure launches. A calm, healing offer doesn't need to rush you."],
+  ["No refunds + big upsells", "Especially paired with a hard sell. Reputable practitioners tend to be relaxed about you leaving."],
+  ["Discouraging other care", "Be very wary of anyone who tells you to stop your medication, leave your therapist, or distrust doctors. Good practitioners work alongside your other care, not against it."],
+  ["Unregulated titles dressed up as credentials", "'Nervous system coach', 'somatic practitioner', 'trauma-informed coach' are mostly unprotected terms — anyone can use them. That's not automatically bad, but a directory listing is not a licence. Check what training someone actually has."],
+  ["Secret or proprietary techniques", "Healing isn't a magic trick someone owns. Be skeptical of methods that can't be explained or that only work if you keep paying."],
+  ["Testimonials as evidence", "Glowing stories are marketing, not proof. Ask what the actual evidence is — and notice if the honest answer ('it's early') is missing."],
+  ["Overstated neuroscience", "Impressive brain-talk and 'your primitive brain is betraying you' framing can foster dependency. The real science is usually more modest and less dramatic."],
+];
+---
+
+<Base
+  title="Red flags in this space"
+  description="Consumer skills for evaluating nervous-system and trauma-healing offers — how to spot overclaiming, pressure, and unregulated titles."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Red flags in this space</h1>
+  <Lead>
+    The nervous-system and trauma-healing world has wonderful people in it —
+    and, like any space with hurting people and money, some things to watch
+    for. These are consumer skills, not accusations: a way to keep your own
+    footing. When something pattern-matches to several of these at once, slow
+    down.
+  </Lead>
+
+  <div class="prose">
+    <dl>
+      {
+        flags.map(([label, desc]) => (
+          <>
+            <dt class="font-bold">{label}</dt>
+            <dd>{desc}</dd>
+          </>
+        ))
+      }
+    </dl>
+
+    <h2>A gentle default</h2>
+    <p>
+      When in doubt: start with free or low-cost regulation practices (there
+      are several on this site), and lean toward licensed, trauma-informed
+      professionals. Treat coaches and online programs as possible supplements,
+      not replacements for care — and never as a reason to drop the support
+      you already have. Your caution is not paranoia. It's self-respect.
+    </p>
+  </div>
+
+  <NextSteps>
+    <li><a href={url("about/criteria/")}>How I grade the directory</a></li>
+    <li><a href={url("modalities/")}>The modality directory</a></li>
+    <li><a href={url("practices/")}>Free practices to start with</a></li>
+  </NextSteps>
+</Base>

@@ -25,14 +25,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx astro build
-      # Link-integrity gate (0003): internal links resolve under the base path;
-      # archive.org is skipped (rate-limited) — outbound snapshots exist per-entry.
+      # Link-integrity gate (0003): serve the built output and crawl it, so
+      # internal links resolve under the base path. Outbound directory links are
+      # skipped (rate-limited / bot-blocked); each entry keeps a Wayback snapshot.
       - name: Check links
         run: |
-          mkdir -p _site/nervous-system-healing
-          cp -r dist/* _site/nervous-system-healing/
-          npx linkinator _site/nervous-system-healing --server-root _site --recurse \
-            --skip "web.archive.org" --timeout 30000
+          npx astro preview --port 4455 &
+          npx wait-on http://localhost:4455/nervous-system-healing/ --timeout 60000
+          npx linkinator http://localhost:4455/nervous-system-healing/ --recurse \
+            --skip "^https?://(?!localhost)" --timeout 30000
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

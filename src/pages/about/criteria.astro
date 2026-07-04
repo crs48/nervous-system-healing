@@ -1,0 +1,82 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+
+const tiers = [
+  ["strong evidence", "Repeated, good-quality trials (often randomized), and endorsement by major bodies. In this directory, EMDR for PTSD is the clearest example."],
+  ["moderate evidence", "Real supportive research — several trials or solid reviews — but with limits: small samples, specific outcomes, or effects that look general rather than unique."],
+  ["preliminary evidence", "Early but promising: a few small trials, pilot studies, or a scoping review. Worth trying, not yet proven."],
+  ["practitioner-reported", "Used and valued by practitioners, with little formal research behind it yet. Mostly clinical experience and anecdote."],
+  ["contested", "The specific claims (especially about mechanism) are disputed in the literature, or the popular story runs ahead of the evidence. Can still be genuinely helpful — the badge is about the claims, not your experience."],
+];
+---
+
+<Base
+  title="How this directory is curated"
+  description="The criteria for what's included, what the evidence grades mean, and what would get something removed."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">How this directory is curated</h1>
+  <Lead>
+    This page exists so you can check my work. Here's how something gets onto
+    the modality directory, what each evidence grade means, and what would get
+    something taken off.
+  </Lead>
+
+  <div class="prose">
+    <h2>What the evidence grades mean</h2>
+    <dl>
+      {
+        tiers.map(([label, desc]) => (
+          <>
+            <dt class="font-bold">{label}</dt>
+            <dd>{desc}</dd>
+          </>
+        ))
+      }
+    </dl>
+    <p>
+      Two things worth saying plainly. First, the grade reflects <em>strength
+      of evidence</em>, not size of effect or whether it'll help
+      <em>you</em> — a preliminary approach might help you enormously, and a
+      well-evidenced one might do nothing for you. Second, where I've included
+      my own experience, it sits in a clearly marked box, separate from the
+      evidence, and never dressed up as proof.
+    </p>
+
+    <h2>What gets included</h2>
+    <p>
+      Approaches people are genuinely likely to encounter while looking into
+      nervous-system healing, that I can describe honestly, and that I can
+      point you toward safely (with a real practitioner directory where one
+      exists). The aim is a small, maintained set — not every possible
+      option — because a short honest list beats a long stale one.
+    </p>
+
+    <h2>What gets a caveat, and what gets removed</h2>
+    <p>
+      Some things are included <em>with</em> a "contested" grade rather than
+      left off, so you meet them here — armed — rather than elsewhere without
+      context. Something would be removed if it became clearly unsafe, if its
+      claims were actively harmful, or if I could no longer describe it
+      honestly. If a link dies or a fact goes stale, the "last reviewed" date
+      on each entry is there to keep me honest about it.
+    </p>
+
+    <h2>What's deliberately not here (yet)</h2>
+    <p>
+      Some approaches are left out on purpose for a first version — either
+      because they're clinician-gated and need careful handling (like
+      medication-assisted therapies), or simply because this is small and
+      growing. Absence isn't a judgment; it usually just means "not yet."
+    </p>
+  </div>
+
+  <NextSteps>
+    <li><a href={url("about/red-flags/")}>How to spot red flags in this space</a></li>
+    <li><a href={url("modalities/")}>Back to the directory</a></li>
+    <li><a href={url("about/ethos/")}>How this site is funded</a></li>
+  </NextSteps>
+</Base>

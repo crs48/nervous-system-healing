@@ -1,0 +1,43 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="How this site is funded"
+  description="It isn't. No ads, no affiliates, no sponsors, no paid placements — and what that means for you."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">How this site is funded</h1>
+  <Lead>
+    It isn't. Nothing here earns money — no ads, no affiliate links, no
+    sponsors, no paid placements, no products, no email list to sell you
+    anything later.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      That's a deliberate choice, and it's load-bearing. Because no income
+      rides on any approach looking good, this site can grade things honestly —
+      recommend the free thing, tell you when the evidence is thin, note when a
+      popular method is contested, and point you somewhere else entirely if
+      that's what would actually help.
+    </p>
+    <p>
+      If that ever changes — if there's ever a cost to keep it running, or any
+      money involved at all — this page will say so first, plainly, before you
+      run into it anywhere else.
+    </p>
+    <p>
+      There's no catch to look for. It's just here.
+    </p>
+  </div>
+
+  <NextSteps>
+    <li><a href={url("about/criteria/")}>How the directory is curated</a></li>
+    <li><a href={url("about/why/")}>Why this site exists</a></li>
+    <li><a href={url("modalities/")}>The modality directory</a></li>
+  </NextSteps>
+</Base>

@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="Why this site exists"
+  description="A short, honest note about why this site is here and who's behind it."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Why this site exists</h1>
+  <Lead>
+    Hi — I'm Chris. I made this because I spent a long time not knowing that
+    the thing making everyday life hard had a name, a shape, and a way through.
+    I wanted the page I wish someone had handed me sooner.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      I'm autistic and ADHD, and I found that out fairly late — which reframed
+      a lot. Alongside that, my own nervous system has spent a lot of my life
+      braced: often frozen, sometimes revved up, occasionally at genuine ease.
+      For years I didn't even know it might be <em>stuck</em>, or that
+      "stuck" was a thing a body could be.
+    </p>
+    <p>
+      What's helped me has mostly been slow and body-based: somatic work,
+      good bodywork and the co-regulation of an attuned practitioner, internal
+      family systems, movement, and learning — finally — to go at a pace my
+      system could actually tolerate. I'm not a doctor or a therapist. I'm
+      someone walking this road, cataloguing what I find along the way.
+    </p>
+    <p>
+      So that's what this is: a free, honest starting place. No products, no
+      accounts, no email list, no urgency. If it helps you take one gentle
+      step, or find one good next thing, it's done its job.
+    </p>
+  </div>
+
+  <NextSteps>
+    <li><a href={url("about/ethos/")}>How this site is funded (it isn't)</a></li>
+    <li><a href={url("start/")}>Start here</a></li>
+    <li><a href={url("")}>Back home</a></li>
+  </NextSteps>
+</Base>

@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("garden");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  crumbs={[
+    { label: "home", href: "" },
+    { label: "understand", href: "learn/" },
+  ]}
+>
+  <article>
+    <h1 class="text-3xl sm:text-4xl">{d.title}</h1>
+    <p class="mt-2 text-sm text-[var(--text-muted)]">
+      {d.stage} · planted {d.planted.toISOString().slice(0, 10)}
+      {
+        d.lastTended &&
+          ` · last tended ${d.lastTended.toISOString().slice(0, 10)}`
+      }
+    </p>
+    <Lead>{d.description}</Lead>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {
+      d.sources.length > 0 && (
+        <section class="mt-8 max-w-[65ch] text-sm">
+          <h2 class="text-lg">Sources</h2>
+          <ul>
+            {d.sources.map((s) => (
+              <li>
+                <a href={s.url} rel="noopener">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="text-[var(--text-muted)]">
+            Last reviewed {d.lastReviewed.toISOString().slice(0, 10)}.
+          </p>
+        </section>
+      )
+    }
+
+    <NextSteps>
+      <li><a href={url("learn/")}>More to understand</a></li>
+      <li><a href={url("practices/")}>Try a practice</a></li>
+      <li><a href={url("start/")}>Back to the path</a></li>
+    </NextSteps>
+  </article>
+</Base>

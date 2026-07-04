@@ -1,0 +1,61 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+---
+
+<Base
+  title="Not medical advice — and crisis resources"
+  description="This site is educational, not medical advice. If you're in crisis, here's where to get help right now."
+  crumbs={[{ label: "home", href: "" }]}
+>
+  <h1 class="text-3xl sm:text-4xl">Not medical advice</h1>
+  <Lead>
+    Everything here is educational — one person sharing what he's learned and
+    found helpful. It isn't medical advice, diagnosis, or treatment, and it's
+    not a substitute for a qualified professional who knows your situation.
+  </Lead>
+
+  <div class="prose">
+    <p>
+      Nervous-system and trauma work can stir things up. If a practice ever
+      makes you feel worse, it's completely okay to stop — opening your eyes,
+      looking around the room, standing up, or reaching out to someone are all
+      valid responses. Nothing here is required, and slower is always allowed.
+    </p>
+    <p>
+      If you're dealing with significant distress, please consider working with
+      a licensed, trauma-informed professional. This site is not designed for
+      people in crisis.
+    </p>
+
+    <h2>If you're in crisis right now</h2>
+    <p>You deserve support, and it's available.</p>
+    <ul>
+      <li>
+        <strong>US — call or text 988</strong> (Suicide & Crisis Lifeline),
+        any time, free and confidential.
+      </li>
+      <li>
+        <strong>US — text HOME to 741741</strong> (Crisis Text Line).
+      </li>
+      <li>
+        <strong>Emergencies — call 911</strong> (or your local emergency
+        number).
+      </li>
+      <li>
+        Outside the US, <a
+          href="https://findahelpline.com/"
+          rel="noopener">findahelpline.com</a
+        > lists free crisis lines by country.
+      </li>
+    </ul>
+  </div>
+
+  <NextSteps>
+    <li><a href={url("modalities/")}>Find a practitioner</a></li>
+    <li><a href={url("practices/")}>Gentle practices</a></li>
+    <li><a href={url("")}>Back home</a></li>
+  </NextSteps>
+</Base>
