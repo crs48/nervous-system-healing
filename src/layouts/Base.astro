@@ -10,10 +10,13 @@ import { url } from "../lib/url";
 interface Props {
   title: string;
   description: string;
-  /** breadcrumb trail, e.g. [{ label: "practices", href: "practices/" }] */
+  /** Section ancestors between home and this page, e.g. a modality detail
+      passes [{ label: "modalities", href: "modalities/" }]. Home is prepended
+      and the current page (title) is appended automatically. Pass [] for a
+      top-level page; omit entirely to hide the breadcrumb (e.g. the home page). */
   crumbs?: { label: string; href: string }[];
 }
-const { title, description, crumbs = [] } = Astro.props;
+const { title, description, crumbs } = Astro.props;
 
 const nav = [
   { label: "Start here", href: "start/" },
@@ -85,17 +88,19 @@ const current = Astro.url.pathname;
 
     <main id="main" class="mx-auto w-full max-w-4xl px-4 py-10 flex-1">
       {
-        crumbs.length > 0 && (
-          <nav aria-label="You are here" class="mb-4 text-sm text-[var(--text-muted)]">
-            you're in:{" "}
-            {crumbs.map((c, i) => (
+        crumbs && (
+          <nav aria-label="Breadcrumb" class="mb-4 text-sm text-[var(--text-muted)]">
+            <a href={url("")} class="text-[var(--text-muted)]">home</a>
+            {crumbs.map((c) => (
               <>
-                {i > 0 && <span aria-hidden="true"> / </span>}
+                <span aria-hidden="true"> / </span>
                 <a href={url(c.href)} class="text-[var(--text-muted)]">
                   {c.label}
                 </a>
               </>
             ))}
+            <span aria-hidden="true"> / </span>
+            <span aria-current="page" class="text-[var(--text)]">{title}</span>
           </nav>
         )
       }
