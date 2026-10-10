@@ -6,7 +6,7 @@ Nervous System Healing has a kind, useful foundation, but the experience is quie
 
 The request is to explore an overhaul: learn from the other sites on [crs.land](https://crs.land/), bring in current research and important voices, and create a more playful, compelling starting place for a nervous-system healing journey. The recent [tweet](https://x.com/becomingbabyman/status/2108715333494411314), [Timeout essay](https://xnet.fyi/blog/timeout/), and [coaching site](https://crs.coach/) supply public context.
 
-**Date:** October 10, 2026. **Status:** research and design exploration; implementation remains proposed. The `[_]` filename tracks the unimplemented overhaul, not whether this research is finished. The companion [research dossier](../research/2026-10-10_NERVOUS_SYSTEM_RESEARCH_AND_PEOPLE.md) records evidence, limitations, and resource choices. The [interactive concept](../concepts/a-little-more-room/index.html) makes the recommended direction reviewable without changing production routes.
+**Date:** October 10, 2026. **Status:** the approved homepage design is implemented; the broader editorial and directory overhaul remains proposed. The `[_]` filename tracks that remaining work. The companion [research dossier](../research/2026-10-10_NERVOUS_SYSTEM_RESEARCH_AND_PEOPLE.md) records evidence, limitations, and resource choices. The original [interactive concept](../concepts/a-little-more-room/index.html) remains a design reference; the production homepage lives in `src/pages/index.astro`.
 
 ## Executive summary
 
@@ -421,16 +421,17 @@ Each new resource has a named reason for inclusion and a review date. Link rot s
 
 ### Milestone 2 — a compelling welcome
 
-- [ ] Implement landing tokens and illustration family while preserving article readability.
-- [ ] Build the new homepage and request-based picker with no-JS links.
-- [ ] Add quiet view and verify light/dark, mobile, and reduced-motion behavior.
+- [x] Implement landing tokens and illustration family while preserving article readability.
+- [x] Build the new homepage and request-based picker with no-JS links.
+- [x] Add quiet view and verify light/dark, mobile, and reduced-motion behavior.
 - [ ] Revise the five-step route without breaking existing URLs.
 - [ ] Publish the two highest-priority situation guides.
-- [ ] Add the attributed founder bridge and public-source links.
+- [x] Add the attributed founder bridge and public-source links.
 
 ### Milestone 3 — good people, useful context
 
-- [ ] Publish the eleven annotated profiles; feature the four requested people on home.
+- [x] Feature the four requested people with scope notes and entry resources on home.
+- [ ] Publish the full eleven-profile directory.
 - [ ] Verify resource access barriers and mark clinician-facing content.
 - [ ] Publish a small source library and two or three research notes.
 - [ ] Add link checks, review-date conventions, and corrections guidance.
@@ -457,6 +458,8 @@ Each new resource has a named reason for inclusion and a review date. Link rot s
 **Observed result:** the local concept was inspected at 1280px, 390px, and 320px. All four choices, arrow-key selection, ending/restart focus, quiet view, and disclosures worked. No horizontal overflow was found at those widths. A temporary script-free copy retained all four invitations and ordinary links; enhancement-only controls were hidden. JavaScript syntax and relative file/anchor checks passed; the final browser console reported no warnings or errors. [Preview instructions, scope, and screenshots](../concepts/a-little-more-room/README.md) are saved beside the concept. This is not a full accessibility or clinical certification. The initial exploration changed no production application files. In the subsequent requested community update, the illustration was clarified, MIT licensing and contribution guidance were added, and both footers gained community links. The Astro build passed under Node 22.16.0 for that update; the full overhaul remains proposed.
 
 ### Required for production implementation
+
+The homepage release passed the Astro build and diagnostics (0 errors/warnings), a 958-reference local link/asset scan across 44 pages, and browser checks of all four choices, keyboard selection, stop/restart focus, quiet view, disclosures, and 390px/320px layouts. A temporary script-free build copy with the dark stylesheet branch forced on verified fallback content and dark rendering; production retains the actual system-preference media query. No autoplay or animation was introduced. The remaining checklist below applies to the broader overhaul, including existing clinical content and full assistive-technology review.
 
 - [ ] `npm run build` passes with all collections and routes.
 - [ ] Run the project's configured Astro/TypeScript checks and resolve new errors.

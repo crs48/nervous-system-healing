@@ -16,10 +16,11 @@ accessibility improvements, and pull requests.
 
 ## Design exploration
 
-The [A little more room concept](docs/concepts/a-little-more-room/README.md)
-explores a warmer, more playful welcome. It includes a runnable preview,
-screenshots, and links to the research and overhaul brief. It is separate from
-the current live homepage.
+The homepage uses the **A little more room** design: an illustrated welcome,
+optional starting invitations, a quiet view, and annotated people and research.
+The original [design concept](docs/concepts/a-little-more-room/README.md) remains
+as a standalone reference, with screenshots and links to the research and
+broader overhaul brief.
 
 ## Stack
 

@@ -1,6 +1,6 @@
 # A little more room — interactive design concept
 
-An independently runnable homepage proposal for [exploration 0010](../../explorations/0010_%5B_%5D_A_LITTLE_MORE_ROOM_NERVOUS_SYSTEM_SITE_REJUVENATION.md). It demonstrates the visual direction, visitor choices, resource annotations, and evidence disclosures. It does not change the Astro application or deploy a website.
+The original independently runnable homepage proposal for [exploration 0010](../../explorations/0010_%5B_%5D_A_LITTLE_MORE_ROOM_NERVOUS_SYSTEM_SITE_REJUVENATION.md). Its approved design is now implemented in the production Astro homepage at [Nervous System Healing](https://crs48.github.io/nervous-system-healing/). This folder preserves the standalone reference; production components and behavior live under `src/`.
 
 Open [index.html](index.html) directly, or run from the repository root:
 
@@ -26,9 +26,9 @@ No selections are saved. There are no third-party fonts, embeds, tracking script
 The hero now has separate armrests and continuous legs beneath the blanket.
 The footer links to the public [repository](https://github.com/crs48/nervous-system-healing),
 its [MIT license](../../../LICENSE) under Christopher Smothers, and
-[contribution guidance](../../../CONTRIBUTING.md). The current Astro site's
-footer also identifies the project as an open-source community resource;
-the full homepage overhaul remains a separate implementation step.
+[contribution guidance](../../../CONTRIBUTING.md). The production homepage
+includes these links and the corrected illustration. The broader article,
+directory, and editorial changes remain tracked in exploration 0010.
 
 ## Review record — October 10, 2026
 
@@ -43,7 +43,7 @@ the full homepage overhaul remains a separate implementation step.
 - [x] Check unique HTML IDs, in-page destinations, and relative document/file references.
 - [x] Format HTML, CSS, and JavaScript with the repository's installed Prettier.
 
-These checks are a prototype review, not a WCAG certification or a clinical review. Full screen-reader testing, theme integration, a comprehensive contrast audit, production content review, and Astro route/build verification remain in the implementation checklist. This concept intentionally presents one light-theme visual direction; the production overhaul should preserve and verify the current site's dark theme.
+These checks record the original prototype review, not a WCAG certification or a clinical review. The subsequent production implementation passed Astro build/check and a 958-reference local link/asset scan, with browser checks of choices, keyboard selection, stopping/restarting, quiet view, and 390px/320px reflow. A separate script-free copy with the dark stylesheet branch enabled verified the fallback and dark rendering. The standalone concept keeps its original light presentation; production also follows the reader's system color scheme. Full screen-reader and clinical reviews remain separate work.
 
 ## Captures
 
