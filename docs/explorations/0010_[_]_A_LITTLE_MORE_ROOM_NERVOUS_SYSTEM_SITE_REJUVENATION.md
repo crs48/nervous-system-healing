@@ -409,7 +409,7 @@ Each new resource has a named reason for inclusion and a review date. Link rot s
 - [x] Research current studies and practitioner resources; separate findings from claims.
 - [x] Identify concrete content corrections and a migration path.
 - [x] Write the direction, alternatives, information architecture, and launch slate.
-- [ ] Build and inspect the local interactive homepage concept.
+- [x] Build and inspect the local interactive homepage concept.
 
 ### Milestone 1 — trustworthy foundation
 
@@ -449,10 +449,12 @@ Each new resource has a named reason for inclusion and a review date. Link rot s
 - [x] Recommendations distinguish observed facts, research findings, and design inferences.
 - [x] Primary research and official resource links accompany the recommendations.
 - [x] Existing public context is used without extending the private persona material.
-- [ ] Local concept has working choices, disclosures, navigation, and an ending state.
-- [ ] Inspect concept at desktop and narrow mobile widths; check overflow and tap targets.
-- [ ] Verify keyboard selection, focus visibility, quiet view, and static default presentation.
-- [ ] Verify concept file links and document references.
+- [x] Local concept has working choices, disclosures, navigation, and an ending state.
+- [x] Inspect concept at desktop and narrow mobile widths; check overflow and tap targets.
+- [x] Verify keyboard selection, focus visibility, quiet view, and static default presentation.
+- [x] Verify concept file links and document references.
+
+**Observed result:** the local concept was inspected at 1280px, 390px, and 320px. All four choices, arrow-key selection, ending/restart focus, quiet view, and disclosures worked. No horizontal overflow was found at those widths. A temporary script-free copy retained all four invitations and ordinary links; enhancement-only controls were hidden. JavaScript syntax and relative file/anchor checks passed; the final browser console reported no warnings or errors. [Preview instructions, scope, and screenshots](../concepts/a-little-more-room/README.md) are saved beside the concept. This is not a full accessibility or clinical certification. No production application files changed, so an Astro production build was not part of this exploration.
 
 ### Required for production implementation
 
@@ -473,6 +475,7 @@ Success is a visitor who understands one idea and can choose a next step or leav
 
 - [Research dossier: fifteen evidence records, eleven people, and public context](../research/2026-10-10_NERVOUS_SYSTEM_RESEARCH_AND_PEOPLE.md)
 - [Local interactive concept](../concepts/a-little-more-room/index.html)
+- [Concept walkthrough and screenshots](../concepts/a-little-more-room/README.md)
 - [Current content rules](../../CONTENT_GUIDELINES.md), [content schemas](../../src/content.config.ts), [homepage](../../src/pages/index.astro), and [layout](../../src/layouts/Base.astro)
 - The public design references are linked individually in section 2; the medical sources are linked in section 4 and the dossier.
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/) is the proposed accessibility baseline, not a claim of certification.
