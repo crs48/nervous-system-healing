@@ -26,13 +26,13 @@ jobs:
       - run: npm ci
       - run: npx astro build
       # Link-integrity gate (0003): serve the built output and crawl it, so
-      # internal links resolve under the base path. Outbound directory links are
+      # internal links resolve at the custom domain's root. Outbound directory links are
       # skipped (rate-limited / bot-blocked); each entry keeps a Wayback snapshot.
       - name: Check links
         run: |
           npx astro preview --port 4455 &
-          npx wait-on http://localhost:4455/nervous-system-healing/ --timeout 60000
-          npx linkinator http://localhost:4455/nervous-system-healing/ --recurse \
+          npx wait-on http://localhost:4455/ --timeout 60000
+          npx linkinator http://localhost:4455/ --recurse \
             --skip "^https?://(?!localhost)" --timeout 30000
       - uses: actions/upload-pages-artifact@v3
         with:

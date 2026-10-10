@@ -27,4 +27,4 @@ equipment or teacher, and you can do it anywhere. Honesty matters here,
 though — the quick physiological effect is real, but the bigger claims that
 circulate on social media outrun the evidence. Treat it as a genuinely useful
 tool and a good on-ramp, not a treatment. You can try it right now on the
-[breathing pacer](/nervous-system-healing/tools/breathing/).
+[breathing pacer](/tools/breathing/).

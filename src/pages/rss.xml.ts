@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
     title: "Nervous System Healing",
     description:
       "A calm, honest place to understand and work with your nervous system.",
-    site: context.site ?? "https://crs48.github.io/nervous-system-healing",
+    site: context.site ?? "https://gently.fyi",
     items: garden
       .sort(
         (a, b) =>

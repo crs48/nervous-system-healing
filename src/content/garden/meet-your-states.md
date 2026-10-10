@@ -14,7 +14,7 @@ sources:
 
 Most of what people mean by "working with your nervous system" starts with
 being able to tell, roughly, which state you're in. Here's a fuller version of
-the tour from the [Start Here path](/nervous-system-healing/start/2-meet-the-states/).
+the tour from the [Start Here path](/start/2-meet-the-states/).
 
 ## Settled (safe enough)
 
@@ -59,4 +59,4 @@ knowing that the *specific science* behind the popular version of this model
 (polyvagal theory) is debated. We use it as a helpful **map**. The map isn't
 the territory — but a good map still helps you find your way. There's more on
 that honesty point in the [modality entry for polyvagal-informed
-work](/nervous-system-healing/modalities/polyvagal-informed/).
+work](/modalities/polyvagal-informed/).

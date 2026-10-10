@@ -5,7 +5,7 @@ and somatic regulation — short practices, an honest directory of modalities,
 and plain-language explainers. No accounts, no tracking, no money changes
 hands.
 
-**Live site:** https://crs48.github.io/nervous-system-healing/
+**Live site:** [gently.fyi](https://gently.fyi/)
 
 **Public repository:** [crs48/nervous-system-healing](https://github.com/crs48/nervous-system-healing)
 
@@ -39,8 +39,13 @@ npm run build    # static build to dist/
 npm run preview  # serve the built site
 ```
 
-The site is served under the base path `/nervous-system-healing/`, so prefix
-internal links with it (or use the `url()` helper in `src/lib/`).
+The site is served at the root of `https://gently.fyi/`. Use the `url()` helper
+in `src/lib/` for template links and root-relative paths such as `/practices/`
+in Markdown content.
+
+The custom domain is configured in the repository's GitHub Pages settings.
+The Actions deployment uses `astro.config.mjs` for canonical URLs, RSS, and
+the sitemap; it does not require a `CNAME` file.
 
 ## Content
 

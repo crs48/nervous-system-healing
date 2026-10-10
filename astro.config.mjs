@@ -3,10 +3,10 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
-// Canonical decisions: docs/explorations/0008 (M0 — same-repo GitHub Pages).
+// GitHub Pages serves the custom domain at its root.
 export default defineConfig({
-  site: "https://crs48.github.io",
-  base: "/nervous-system-healing",
+  site: "https://gently.fyi",
+  base: "/",
   trailingSlash: "always",
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },

@@ -27,7 +27,7 @@ the notion that shutdown is a protective setting rather than a failure. Deb
 Dana's work translates it into practical, gentle clinical tools.
 
 Here's the honest part, and it's the same map-versus-territory point we make
-in the [Understand](/nervous-system-healing/learn/) section: the *specific
+in the [Understand](/learn/) section: the *specific
 neuroscience* Porges proposed is seriously debated, and some of its
 evolutionary claims appear to be contradicted by the evidence. That doesn't
 make the map useless — clinicians and clients find the states framing genuinely

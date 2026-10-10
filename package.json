@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/crs48/nervous-system-healing/issues"
   },
-  "homepage": "https://github.com/crs48/nervous-system-healing#readme",
+  "homepage": "https://gently.fyi/",
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",

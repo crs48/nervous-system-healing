@@ -34,6 +34,9 @@ const current = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    {Astro.url.pathname !== "/404/" && (
+      <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    )}
     <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
     <link
       rel="alternate"

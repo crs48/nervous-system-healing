@@ -56,13 +56,13 @@ bracing for threat.
 
 Two of those doors are free, and yours to keep:
 
-- [A longer exhale](/nervous-system-healing/practices/long-exhale/) — the
+- [A longer exhale](/practices/long-exhale/) — the
   gentlest, always-available one.
-- [Hold, tense, and release](/nervous-system-healing/practices/hold-and-release/)
+- [Hold, tense, and release](/practices/hold-and-release/)
   — a small, deliberate wave of settling (with a couple of safety notes).
 
 Other doors — bodywork, and some medicines — are in the
-[modalities directory](/nervous-system-healing/modalities/), graded honestly.
+[modalities directory](/modalities/), graded honestly.
 
 ## Borrowed state, or built capacity
 
@@ -77,7 +77,7 @@ That building is what the rest of this site is about. If the settled state feels
 foreign or hard to hold onto, that's not a personal failing — there are real
 reasons a nervous system's capacity for it can be limited, and it's the kind of
 thing that widens with slow, regular practice. There's more on that in
-[capacity, and the window of tolerance](/nervous-system-healing/learn/capacity-and-the-window-of-tolerance/).
+[capacity, and the window of tolerance](/learn/capacity-and-the-window-of-tolerance/).
 
 ## A note on the map
 
