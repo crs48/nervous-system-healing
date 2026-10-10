@@ -1,69 +1,280 @@
 ---
-import Base from "../layouts/Base.astro";
+import "@fontsource-variable/fraunces/wght.css";
+import "@fontsource/atkinson-hyperlegible-next/latin-400.css";
+import "@fontsource/atkinson-hyperlegible-next/latin-600.css";
+import "../styles/home.css";
+import RoomIllustration from "../components/home/RoomIllustration.astro";
+import HomeChoices from "../components/home/HomeChoices.astro";
+import HomePeople from "../components/home/HomePeople.astro";
 import { url } from "../lib/url";
-
-const doors = [
-  {
-    href: "start/",
-    title: "Start here",
-    text: "New to all this? A short path — five small steps, ten minutes, skippable at every point.",
-  },
-  {
-    href: "learn/",
-    title: "Understand",
-    text: "What nervous system states are, and why capacity grows slowly.",
-  },
-  {
-    href: "practices/",
-    title: "Practices",
-    text: "Short, concrete practices — two to ten minutes, sorted by how you're arriving.",
-  },
-  {
-    href: "modalities/",
-    title: "Modalities",
-    text: "An honest directory of therapies and approaches, with evidence grades and real costs.",
-  },
-];
 ---
 
-<Base
-  title="A calm place to start"
-  description="A free orientation hub for nervous system healing — honest, gentle, and built to point you onward."
->
-  <section class="py-8">
-    <h1 class="text-4xl sm:text-5xl max-w-[24ch]">
-      A calm place to understand and work with your nervous system.
-    </h1>
-    <p class="mt-6 text-xl max-w-[65ch]" data-intro>
-      Hi, I'm Chris — I'm walking this road too. This site is a free,
-      honest starting place: no products, no accounts, no urgency. Just what
-      I wish someone had shown me sooner, organized gently.
-    </p>
-  </section>
-
-  <section aria-label="Ways in" class="grid gap-4 sm:grid-cols-2 py-6">
-    {
-      doors.map((d) => (
-        <a
-          href={url(d.href)}
-          class="block rounded-card bg-[var(--surface-raised)] p-6 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
-        >
-          <p class="font-display text-xl text-[var(--heading)] m-0">
-            {d.title}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A friendly, free field guide to stress, sensation, and your own pace. Small invitations, useful ideas, and people worth learning from."
+    />
+    <title>A little more room · Nervous System Healing</title>
+    <link rel="canonical" href={new URL(url(""), Astro.site)} />
+    <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Nervous System Healing" href={url("rss.xml")} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#main" aria-label="Nervous System Healing home"
+        ><span class="mark" aria-hidden="true">✳</span
+        ><span>nervous system<br />healing</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#small">Start small</a><a href="#understand">Understand</a
+        ><a href="#people">People & paths</a><a href="#research">Sources</a>
+      </nav>
+      <button class="quiet-button" id="quiet" aria-pressed="false" hidden>
+        <span aria-hidden="true">◐</span> Quiet view
+      </button>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-sun" aria-hidden="true">✳</span> A field guide, at
+            your pace
           </p>
-          <p class="mt-2 m-0 text-[var(--text-muted)]">{d.text}</p>
-        </a>
-      ))
-    }
-  </section>
+          <h1 id="hero-title">A little more<br /><em>room</em> to be you.</h1>
+          <p class="hero-lede">
+            For the too-much days. The far-away days.<br
+              class="desktop-break"
+            />
+            And the “where do I even begin?” days.
+          </p>
+          <p class="hero-note">
+            Meet your nervous system with curiosity.<br />Find a small place to
+            start. Stay as long as you like.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#small"
+              >Find a small beginning <span aria-hidden="true">↘</span></a
+            ><a class="text-link" href="#understand"
+              >I’d rather just read <span aria-hidden="true">→</span></a
+            >
+          </div>
+          <p class="small-print">
+            Free to explore. No account. Nothing to keep up with.
+          </p>
+        </div>
+        <figure class="hero-art decoration">
+          <RoomIllustration />
+          <figcaption>
+            A place to land. No special breathing required.
+          </figcaption>
+        </figure>
+      </section>
+      <div class="permission-strip">
+        <span>You don’t have to feel calm to belong here.</span
+        ><span aria-hidden="true">✳</span
+        ><span>Curiosity counts. So does stopping.</span>
+      </div>
 
-  <script>
-    // Mark home as seen (first-visit vs returning, 0007). Fail-safe.
-    try {
-      const key = "nsh:profile:v1";
-      const p = JSON.parse(localStorage.getItem(key) ?? "{}");
-      p.seen = { ...(p.seen ?? {}), home: true };
-      localStorage.setItem(key, JSON.stringify(p));
-    } catch {}
-  </script>
-</Base>
+      <HomeChoices />
+
+      <section id="understand" class="understand-band">
+        <div class="section wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / A little context</p>
+              <h2>Less fixing.<br /><em>More getting to know yourself.</em></h2>
+            </div>
+            <a
+              class="text-link"
+              href={url("start/1-you-have-a-nervous-system/")}
+              >Take the beginner tour ↗</a
+            >
+          </div>
+          <div class="ideas">
+            <article>
+              <span class="idea-number">01</span>
+              <h3>Calm isn’t a character grade.</h3>
+              <p>
+                You don’t need to turn every feeling into a project. There’s
+                room here for energy, uncertainty, rest, and a perfectly
+                ordinary Tuesday.
+              </p>
+            </article>
+            <article>
+              <span class="idea-number">02</span>
+              <h3>You get to have preferences.</h3>
+              <p>
+                Eyes open or closed. Moving or still. Body-focused or
+                outward-looking. If an invitation doesn’t fit, changing it is
+                allowed.
+              </p>
+            </article>
+            <article>
+              <span class="idea-number">03</span>
+              <h3>A map is still a map.</h3>
+              <p>
+                Terms like “fight,” “flight,” and “freeze” can start a
+                conversation. A website can’t tell what your nervous system is
+                doing from a couple of sliders.
+              </p>
+              <a href="#research">How we handle claims →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="founder wrap section" aria-labelledby="founder-title">
+        <div class="founder-art decoration" aria-hidden="true">
+          <span>time<br /><em>out.</em></span
+          ><svg viewBox="0 0 180 100">
+            <path
+              d="M18 57Q58 13 90 58t73-3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="m151 53 13 1-6 13"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">The person behind this</p>
+          <h2 id="founder-title">
+            A place to begin.<br />And to begin <em>again.</em>
+          </h2>
+          <p>
+            This project grows out of Chris’s exploration of burnout, feeling,
+            and finding his way back to himself. It gathers questions, useful
+            ideas, and ways in for people beginning an exploration of their own.
+          </p>
+          <a class="text-link" href="https://xnet.fyi/blog/timeout/"
+            >Read Chris’s story: Timeout ↗</a
+          >
+          <p class="small-print">
+            Based on the public essay. One person’s experience; not a treatment
+            recommendation.
+          </p>
+        </div>
+      </section>
+
+      <HomePeople />
+
+      <section
+        id="research"
+        class="section wrap research-section"
+        aria-labelledby="research-title"
+      >
+        <div>
+          <p class="eyebrow">04 / Keep the curiosity. Check the claims.</p>
+          <h2 id="research-title">
+            A little wonder.<br /><em>A little “how do we know?”</em>
+          </h2>
+          <p>
+            There’s promising work here. There are also open questions. We can
+            make room for both.
+          </p>
+          <a
+            class="text-link"
+            href="https://www.ptsd.va.gov/professional/treat/txessentials/overview_therapy.asp"
+            >Start with established PTSD care guidance ↗</a
+          >
+        </div>
+        <div class="research-notes">
+          <details>
+            <summary>
+              <span
+                ><span class="evidence-label">Early research · 2026</span>Can a
+                brief somatic session help?</span
+              >
+            </summary>
+            <p>
+              Two randomized studies reported encouraging immediate findings.
+              They do not establish lasting trauma recovery.
+            </p>
+            <a
+              href="https://www.tandfonline.com/doi/full/10.1080/20008066.2026.2613544"
+              >Read the study and its limits ↗</a
+            >
+          </details>
+          <details>
+            <summary>
+              <span
+                ><span class="evidence-label">Active comparison · 2026</span
+                >What’s new in parts work?</span
+              >
+            </summary>
+            <p>
+              A small trial found improvement in both groups, with no
+              significant PTSD symptom advantage for the IFS-based program over
+              its active comparison.
+            </p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41609644/"
+              >Read the randomized trial abstract ↗</a
+            >
+          </details>
+          <details>
+            <summary>
+              <span
+                ><span class="evidence-label">Teaching framework · debated</span
+                >Is the nervous system a three-state switch?</span
+              >
+            </summary>
+            <p>
+              Polyvagal language is influential, but key physiological claims
+              remain contested. We use everyday descriptions without assigning
+              you a vagal state.
+            </p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41768017/"
+              >Read the critique ↗</a
+            ><a href="https://pubmed.ncbi.nlm.nih.gov/41768026/"
+              >Read the response ↗</a
+            >
+          </details>
+        </div>
+      </section>
+      <section class="closing wrap">
+        <span class="decoration" aria-hidden="true">✳</span>
+        <h2>You can leave<br /><em>some room for later.</em></h2>
+        <p>This page will still be here.</p>
+        <a class="text-link" href="#main">Back to the beginning ↑</a>
+      </section>
+    </main>
+    <footer class="wrap">
+      <div>
+        <a class="wordmark" href="#main"><span class="mark" aria-hidden="true">✳</span><span>nervous system<br />healing</span></a>
+        <p>A free, open-source community resource by <a href="https://crs.land/">Christopher Smothers</a>.<br />Made with curiosity. Contributions welcome.</p>
+        <nav class="community-links" aria-label="Open source community">
+          <a href="https://github.com/crs48/nervous-system-healing">View the source on GitHub ↗</a>
+          <a href="https://github.com/crs48/nervous-system-healing/blob/main/CONTRIBUTING.md">Contribute ↗</a>
+          <a href="https://github.com/crs48/nervous-system-healing/blob/main/LICENSE">MIT license ↗</a>
+        </nav>
+      </div>
+      <div>
+        <h2 class="footer-title">A few ways onward</h2>
+        <nav class="community-links" aria-label="Explore the guide">
+          <a href={url("practices/")}>All practices</a>
+          <a href={url("modalities/")}>Approaches to support</a>
+          <a href={url("learn/")}>More to understand</a>
+          <a href={url("about/why/")}>About this project</a>
+          <a href={url("about/criteria/")}>Curation criteria</a>
+          <a href={url("rss.xml")}>RSS</a>
+        </nav>
+        <p>Educational content, not medical advice or a substitute for professional care.
+          <a href={url("about/disclaimer/")}>Read the scope and crisis resources</a>.</p>
+        <p>Research checked October 10, 2026. No accounts, tracking, sound, or saved selections.</p>
+      </div>
+    </footer>
+    <script>
+      import "../scripts/home";
+    </script>
+  </body>
+</html>
