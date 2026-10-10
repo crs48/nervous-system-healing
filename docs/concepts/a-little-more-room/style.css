@@ -714,6 +714,18 @@ footer .footer-title {
 footer p + p {
   margin-top: 12px;
 }
+.community-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  margin-top: 12px;
+}
+.community-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+}
 .quiet .decoration {
   display: none;
 }

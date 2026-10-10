@@ -21,6 +21,15 @@ Then open [the local preview](http://127.0.0.1:4178/). Port 4178 was used for th
 
 No selections are saved. There are no third-party fonts, embeds, tracking scripts, timers, or animations. Fraunces and Atkinson font files come from the repository's installed packages, with their licenses included. The SVG illustration was authored for this concept.
 
+## Community update
+
+The hero now has separate armrests and continuous legs beneath the blanket.
+The footer links to the public [repository](https://github.com/crs48/nervous-system-healing),
+its [MIT license](../../../LICENSE) under Christopher Smothers, and
+[contribution guidance](../../../CONTRIBUTING.md). The current Astro site's
+footer also identifies the project as an open-source community resource;
+the full homepage overhaul remains a separate implementation step.
+
 ## Review record — October 10, 2026
 
 - [x] Inspect the full desktop page at the default 1280px browser width.
@@ -41,5 +50,6 @@ These checks are a prototype review, not a WCAG certification or a clinical revi
 - [Desktop welcome](screenshots/desktop.jpg)
 - [Full page](screenshots/full-page.jpg)
 - [Mobile choice panel with keyboard focus](screenshots/mobile.jpg)
+- [Open-source community footer](screenshots/community-footer.jpg)
 
 ![Desktop welcome](screenshots/desktop.jpg)

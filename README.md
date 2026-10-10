@@ -7,6 +7,20 @@ hands.
 
 **Live site:** https://crs48.github.io/nervous-system-healing/
 
+**Public repository:** [crs48/nervous-system-healing](https://github.com/crs48/nervous-system-healing)
+
+A community resource by **Christopher Smothers**, released under the
+[MIT license](LICENSE). You're welcome to use, adapt, and improve it.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for corrections, research updates,
+accessibility improvements, and pull requests.
+
+## Design exploration
+
+The [A little more room concept](docs/concepts/a-little-more-room/README.md)
+explores a warmer, more playful welcome. It includes a runnable preview,
+screenshots, and links to the research and overhaul brief. It is separate from
+the current live homepage.
+
 ## Stack
 
 - [Astro 7](https://astro.build/) (static output) + [Tailwind CSS v4](https://tailwindcss.com/)
@@ -46,3 +60,14 @@ project's direction are recorded as numbered explorations in
 
 Educational content, not medical advice. If you're in crisis in the US: call or
 text **988**, or text **HOME** to **741741**.
+
+## License and third-party material
+
+Original project code, documentation, and illustrations are available under
+the [MIT license](LICENSE), copyright © 2026 Christopher Smothers.
+
+Bundled fonts retain their SIL Open Font License notices:
+[Fraunces](docs/concepts/a-little-more-room/assets/FRAUNCES-LICENSE.txt) and
+[Atkinson Hyperlegible Next](docs/concepts/a-little-more-room/assets/ATKINSON-LICENSE.txt).
+Dependencies retain their own licenses. Linked papers, books, and other
+external resources are not relicensed by this project.
