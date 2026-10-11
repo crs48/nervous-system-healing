@@ -5,12 +5,12 @@
 ---
 
 <breathing-pacer class="block">
-  <div class="rounded-card bg-[var(--surface-panel)]/50 p-6 max-w-[40ch] mx-auto text-center">
+  <div class="tool-panel max-w-[26rem] mx-auto text-center">
     <label class="block text-sm text-[var(--text-muted)] mb-2">
       Choose a rhythm
       <select
         data-protocol
-        class="block w-full mt-1 rounded-soft bg-[var(--surface-raised)] p-2 border border-sage-200"
+        class="block w-full mt-1"
       >
         <option value="physiological-sigh">
           Physiological sigh — fastest way to settle
@@ -27,7 +27,7 @@
         class="rounded-full bg-sage-600/70 w-24 h-24 grid place-items-center will-change-transform"
         style="transition: transform var(--phase, 4s) linear;"
       >
-        <span data-phase-label class="text-[var(--surface)] font-display text-lg"
+        <span data-phase-label class="text-cream-50 text-sm"
           >Ready</span
         >
       </div>
@@ -38,12 +38,12 @@
     <div class="flex gap-3 justify-center mt-4">
       <button
         data-start
-        class="rounded-soft bg-clay-600 text-[var(--surface)] px-5 py-2 border-0 cursor-pointer"
+        class="button"
         >Begin</button
       >
       <button
         data-stop
-        class="rounded-soft bg-[var(--surface-raised)] px-5 py-2 border border-sage-200 cursor-pointer"
+        class="button button-secondary"
         >Stop</button
       >
     </div>

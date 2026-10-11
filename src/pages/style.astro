@@ -7,80 +7,37 @@ import NOfOneAside from "../components/NOfOneAside.astro";
 import EvidenceTag from "../components/EvidenceTag.astro";
 import NextSteps from "../components/NextSteps.astro";
 import { url } from "../lib/url";
-
 const colors = [
-  ["cream-50 (page)", "bg-cream-50"],
-  ["cream-100 (raised)", "bg-cream-100"],
-  ["sage-100 (panel)", "bg-sage-100"],
-  ["sage-200", "bg-sage-200"],
-  ["sage-600", "bg-sage-600"],
-  ["moss-800 (heading)", "bg-moss-800"],
-  ["clay-400", "bg-clay-400"],
-  ["clay-600 (accent)", "bg-clay-600"],
-  ["rose-300", "bg-rose-300"],
+  ["Page", "var(--surface)"], ["Panel", "var(--surface-raised)"],
+  ["Text", "var(--text)"], ["Secondary text", "var(--text-muted)"],
+  ["Links", "var(--accent)"], ["Dividers", "var(--line)"],
 ];
-const tiers = [
-  "strong",
-  "moderate",
-  "preliminary",
-  "practitioner-reported",
-  "contested",
-] as const;
+const tiers = ["strong", "moderate", "preliminary", "practitioner-reported", "contested"] as const;
 ---
-
-<Base
-  title="Style guide"
-  description="The Quiet Delight design system in one place — colors, type, and every recurring component. The reference of record."
-  crumbs={[]}
->
-  <h1 class="text-3xl sm:text-4xl">Style guide</h1>
-  <Lead>
-    Every token and component the site actually uses, in one place. If
-    something new wants to be added here, something old should probably retire
-    — coherence is a small vocabulary, strictly kept.
-  </Lead>
-
+<Base title="Style guide" description="The shared typography, colors, and components used across Gently." crumbs={[]}>
+  <h1 class="page-title">Style guide</h1>
+  <Lead>One reading layout across the whole site. Warm neutral colors, clear links, and useful information before decoration.</Lead>
   <h2 class="text-2xl mt-10">Color</h2>
-  <div class="grid grid-cols-3 sm:grid-cols-3 gap-3 mt-4">
-    {
-      colors.map(([label, bg]) => (
-        <div>
-          <div class:list={[bg, "h-16 rounded-soft border border-sage-200"]} />
-          <p class="text-sm text-[var(--text-muted)] mt-1 mb-0">{label}</p>
-        </div>
-      ))
-    }
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+    {colors.map(([label, color]) => (
+      <div><div class="h-16 rounded-soft" style={{ background: color, border: "1px solid var(--line)" }} /><p class="text-sm mt-1">{label}</p></div>
+    ))}
   </div>
-
-  <h2 class="text-2xl mt-10">Type</h2>
-  <p class="font-display text-3xl m-0">Fraunces — display</p>
-  <p class="m-0">Atkinson Hyperlegible Next — body, 18px, 1.65 line-height.</p>
-
-  <h2 class="text-2xl mt-10">Lead</h2>
-  <Lead>This is a lead paragraph — it could be the whole page.</Lead>
-
-  <h2 class="text-2xl mt-10">Evidence tags</h2>
-  <p class="flex flex-wrap gap-2">
-    {tiers.map((t) => <EvidenceTag tier={t} />)}
-  </p>
-
+  <h2 class="text-2xl mt-10">Type and layout</h2>
+  <div class="prose">
+    <p>Fraunces for headings. Atkinson Hyperlegible Next for reading and navigation. Body text is 17px with a 1.7 line-height; the reading column is at most 43rem wide.</p>
+    <p>Lists use dividers. Panels are reserved for tools and asides. No shadows, decorative illustrations, or automatic motion. The palette follows the reader's light or dark system setting.</p>
+  </div>
+  <h2 class="text-2xl mt-10">Evidence labels</h2>
+  <p class="flex flex-wrap gap-2 mt-3">{tiers.map((tier) => <EvidenceTag tier={tier} />)}</p>
   <h2 class="text-2xl mt-10">Asides</h2>
-  <NoticeAside>
-    <p class="m-0">A gentle, invitational noticing prompt with an exit.</p>
-  </NoticeAside>
-  <NOfOneAside>
-    <p class="m-0">One person's experience, kept visually separate from evidence.</p>
-  </NOfOneAside>
-
-  <h2 class="text-2xl mt-10">Go deeper</h2>
-  <GoDeeper>
-    <p class="m-0">Optional depth — one disclosure level, never essential content.</p>
-  </GoDeeper>
-
-  <h2 class="text-2xl mt-10">Next steps (the exit ritual)</h2>
+  <NoticeAside><p>An optional exercise with a clear way to stop.</p></NoticeAside>
+  <NOfOneAside><p>Personal experience stays separate from evidence.</p></NOfOneAside>
+  <h2 class="text-2xl mt-10">Optional detail</h2>
+  <GoDeeper><p>Supporting detail can go in a disclosure. Essential information stays visible.</p></GoDeeper>
   <NextSteps>
-    <li><a href={url("style/")}>One deeper</a></li>
-    <li><a href={url("style/")}>One sideways</a></li>
-    <li><a href={url("")}>One back to the hub</a></li>
+    <li><a href={url("start/")}>Read the introduction</a></li>
+    <li><a href={url("about/criteria/")}>Evidence criteria</a></li>
+    <li><a href={url("")}>Home</a></li>
   </NextSteps>
 </Base>

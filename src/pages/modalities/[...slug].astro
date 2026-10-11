@@ -37,15 +37,15 @@ const legalLabel: Record<string, string> = {
 <Base
   title={d.name}
   description={d.evidenceNote.slice(0, 150)}
-  crumbs={[{ label: "modalities", href: "modalities/" }]}
+  crumbs={[{ label: "Approaches", href: "modalities/" }]}
 >
   <article>
-    <h1 class="text-3xl sm:text-4xl">{d.name}</h1>
+    <h1 class="page-title">{d.name}</h1>
     <p class="mt-2"><EvidenceTag tier={d.evidenceTier} /></p>
     <Lead>{d.evidenceNote}</Lead>
 
     <dl
-      class="grid sm:grid-cols-[10rem_1fr] gap-x-4 gap-y-2 my-6 max-w-[65ch] text-[1rem]"
+      class="facts"
     >
       <dt class="font-bold">Who it tends to fit</dt>
       <dd class="m-0">{d.whoItTendsToFit}</dd>
@@ -73,7 +73,7 @@ const legalLabel: Record<string, string> = {
 
     {
       d.freeFirstSteps.length > 0 && (
-        <section class="mt-6 max-w-[65ch]">
+        <section class="first-steps mt-6">
           <h2 class="text-xl">Free first steps</h2>
           <ul>
             {d.freeFirstSteps.map((s) => (

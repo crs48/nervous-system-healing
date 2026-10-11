@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-// Latin-only subsets keep the @font-face set small (0007: lean, fast).
 import "@fontsource-variable/fraunces/wght.css";
 import "@fontsource/atkinson-hyperlegible-next/latin-400.css";
 import "@fontsource/atkinson-hyperlegible-next/latin-500.css";
@@ -10,19 +9,14 @@ import { url } from "../lib/url";
 interface Props {
   title: string;
   description: string;
-  /** Section ancestors between home and this page, e.g. a modality detail
-      passes [{ label: "modalities", href: "modalities/" }]. Home is prepended
-      and the current page (title) is appended automatically. Pass [] for a
-      top-level page; omit entirely to hide the breadcrumb (e.g. the home page). */
   crumbs?: { label: string; href: string }[];
 }
 const { title, description, crumbs } = Astro.props;
-
 const nav = [
   { label: "Start here", href: "start/" },
   { label: "Understand", href: "learn/" },
   { label: "Practices", href: "practices/" },
-  { label: "Modalities", href: "modalities/" },
+  { label: "Approaches", href: "modalities/" },
 ];
 const current = Astro.url.pathname;
 ---
@@ -34,113 +28,49 @@ const current = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    {Astro.url.pathname !== "/404/" && (
-      <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    )}
+    {current !== "/404/" && <link rel="canonical" href={new URL(current, Astro.site)} />}
     <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Nervous System Healing"
-      href={url("rss.xml")}
-    />
-    <title>{title} · Nervous System Healing</title>
-    <script is:inline>
-      // Pre-paint, fail-safe (0002/0007): first-visit flag only in Build 1.
-      try {
-        var p = JSON.parse(localStorage.getItem("nsh:profile:v1") || "{}");
-        if (p.seen && p.seen.home) document.documentElement.dataset.returning = "true";
-      } catch (e) {}
-    </script>
+    <link rel="alternate" type="application/rss+xml" title="Gently" href={url("rss.xml")} />
+    <title>{title} · Gently</title>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-[var(--surface-raised)] focus:px-4 focus:py-2 focus:rounded-soft"
-      >Skip to content</a
-    >
-
-    <header class="border-b border-sage-200/60">
-      <nav
-        aria-label="Main"
-        class="mx-auto max-w-4xl px-4 py-4 flex flex-wrap items-center gap-x-5 gap-y-2"
-      >
-        <a
-          href={url("")}
-          class="font-display text-lg no-underline text-[var(--heading)]"
-          >Nervous System Healing</a
-        >
-        <span class="flex-1"></span>
-        {
-          nav.map((item) => (
-            <a
-              href={url(item.href)}
-              aria-current={current.startsWith(url(item.href)) ? "page" : undefined}
-              class:list={[
-                "no-underline text-[var(--text-muted)] rounded-soft px-2 py-1",
-                current.startsWith(url(item.href)) &&
-                  "bg-[var(--surface-panel)] text-[var(--heading)]",
-              ]}
-            >
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="site-name" href={url("")} aria-label="Gently home">gently</a>
+        <nav aria-label="Main" class="site-nav">
+          {nav.map((item) => (
+            <a href={url(item.href)} aria-current={current.startsWith(url(item.href)) ? "page" : undefined}>
               {item.label}
             </a>
-          ))
-        }
-      </nav>
+          ))}
+        </nav>
+      </div>
     </header>
-
-    <main id="main" class="mx-auto w-full max-w-4xl px-4 py-10 flex-1">
-      {
-        crumbs && (
-          <nav aria-label="Breadcrumb" class="mb-4 text-sm text-[var(--text-muted)]">
-            <a href={url("")} class="text-[var(--text-muted)]">home</a>
-            {crumbs.map((c) => (
-              <>
-                <span aria-hidden="true"> / </span>
-                <a href={url(c.href)} class="text-[var(--text-muted)]">
-                  {c.label}
-                </a>
-              </>
-            ))}
-            <span aria-hidden="true"> / </span>
-            <span aria-current="page" class="text-[var(--text)]">{title}</span>
-          </nav>
-        )
-      }
+    <main id="main" class="page" tabindex="-1">
+      {crumbs && (
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+          <a href={url("")}>Home</a>
+          {crumbs.map((c) => (
+            <><span aria-hidden="true">/</span><a href={url(c.href)}>{c.label}</a></>
+          ))}
+          <span aria-hidden="true">/</span><span aria-current="page">{title}</span>
+        </nav>
+      )}
       <slot />
     </main>
-
-    <footer class="border-t border-sage-200/60 mt-16">
-      <div class="mx-auto max-w-4xl px-4 py-10 text-sm text-[var(--text-muted)] space-y-4">
-        <p class="font-display text-base text-[var(--heading)]">
-          You're always welcome here. Go gently.
-        </p>
-        <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0">
-          <li><a href={url("about/why/")}>why this site exists</a></li>
-          <li><a href={url("about/ethos/")}>how it's funded (it isn't)</a></li>
-          <li><a href={url("about/criteria/")}>curation criteria</a></li>
-          <li><a href={url("about/red-flags/")}>red flags</a></li>
-          <li><a href={url("style/")}>style guide</a></li>
-          <li><a href={url("rss.xml")}>rss</a></li>
-          <li>
-            <a href="https://github.com/crs48/nervous-system-healing" rel="noopener"
-              >source on github</a
-            >
-          </li>
-        </ul>
-        <p>
-          A free, open-source community resource by Christopher Smothers.
-          <a href="https://github.com/crs48/nervous-system-healing/blob/main/LICENSE">MIT licensed</a>
-          · <a href="https://github.com/crs48/nervous-system-healing/blob/main/CONTRIBUTING.md">Contributions welcome</a>.
-        </p>
-        <p>
-          <a href={url("about/disclaimer/")}
-            >Educational content, not medical advice — and crisis resources</a
-          >. If you're in crisis in the US: call or text
-          <strong>988</strong>, or text <strong>HOME</strong> to
-          <strong>741741</strong>.
-        </p>
-      </div>
+    <footer class="site-footer">
+      <nav aria-label="About this site" class="footer-links">
+        <a href={url("about/why/")}>About</a>
+        <a href={url("about/criteria/")}>Evidence & criteria</a>
+        <a href={url("about/red-flags/")}>Red flags</a>
+        <a href="https://github.com/crs48/nervous-system-healing">GitHub</a>
+        <a href={url("rss.xml")}>RSS</a>
+      </nav>
+      <p>A free, open-source guide by <a href="https://crs.land/">Christopher Smothers</a>.
+        <a href="https://github.com/crs48/nervous-system-healing/blob/main/LICENSE">MIT licensed</a>.
+      </p>
+      <p>Educational content, not medical advice. <a href={url("about/disclaimer/")}>Scope & crisis resources</a>.</p>
     </footer>
   </body>
 </html>

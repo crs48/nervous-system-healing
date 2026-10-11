@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Lead from "../../components/Lead.astro";
+import StepNav from "../../components/StepNav.astro";
 import NextSteps from "../../components/NextSteps.astro";
 import { url } from "../../lib/url";
 ---
@@ -9,10 +10,10 @@ import { url } from "../../lib/url";
   title="Change is possible, slowly"
   description="Step five: nervous system patterns can change — gradually, with small and regular practice — and here's where to go next."
   crumbs={[
-    { label: "start here", href: "start/" },
+    { label: "Start here", href: "start/" },
   ]}
 >
-  <h1 class="text-3xl sm:text-4xl">Change is possible — slowly.</h1>
+  <h1 class="page-title">Change is possible — slowly.</h1>
   <Lead>
     A stuck pattern isn't permanent. Nervous systems are shaped by repetition,
     which means they can be re-shaped by repetition too — gently, in small
@@ -36,6 +37,8 @@ import { url } from "../../lib/url";
       look into working with a person.
     </p>
   </div>
+
+  <StepNav step={5} />
 
   <NextSteps>
     <li>

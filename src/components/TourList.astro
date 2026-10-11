@@ -1,0 +1,15 @@
+---
+import { tour } from "../lib/tour";
+import { url } from "../lib/url";
+---
+<ol class="tour-list" role="list">
+  {tour.map((step, index) => (
+    <li>
+      <a class="tour-link" href={url(`start/${step.slug}/`)}>
+        <span class="tour-number" aria-hidden="true">{index + 1}.</span>
+        <span class="tour-title">{step.title}</span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+  ))}
+</ol>

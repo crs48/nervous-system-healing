@@ -4,7 +4,6 @@ import Base from "../../layouts/Base.astro";
 import Lead from "../../components/Lead.astro";
 import NextSteps from "../../components/NextSteps.astro";
 import EvidenceTag from "../../components/EvidenceTag.astro";
-import DoorsMap from "../../components/DoorsMap.astro";
 import { url } from "../../lib/url";
 
 const modalities = (await getCollection("modalities")).sort((a, b) =>
@@ -24,20 +23,16 @@ modalities.sort(
 ---
 
 <Base
-  title="Modalities"
+  title="Approaches"
   description="An honest directory of nervous-system and trauma-healing approaches, graded by evidence, with real costs and practitioner directories."
   crumbs={[]}
 >
-  <h1 class="text-3xl sm:text-4xl">Modalities</h1>
+  <h1 class="page-title">Approaches to support</h1>
   <Lead>
-    An honest directory of approaches — graded by how strong the evidence
-    actually is, with real costs and links to find practitioners. Nothing
-    here earns money, so nothing here needs to look better than it is. Before
-    you spend anything, it's worth reading
-    <a href={url("about/red-flags/")}>how to spot red flags</a> in this space.
+    Compare therapies and body-based approaches: what they involve, the
+    evidence, costs, and where to find practitioners. Before choosing one,
+    read <a href={url("about/red-flags/")}>how to spot red flags</a>.
   </Lead>
-
-  <DoorsMap />
 
   <p class="text-sm text-[var(--text-muted)] mt-4">
     Sorted by strength of evidence. <a href={url("about/criteria/")}
@@ -45,27 +40,16 @@ modalities.sort(
     >
   </p>
 
-  <ul class="list-none p-0 mt-4 space-y-3">
-    {
-      modalities.map((m) => (
-        <li>
-          <a
-            href={url(`modalities/${m.id}/`)}
-            class="block rounded-card bg-[var(--surface-raised)] p-5 shadow-soft no-underline hover:shadow-lift transition-shadow duration-300"
-          >
-            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="font-display text-lg text-[var(--heading)]">
-                {m.data.name}
-              </span>
-              <EvidenceTag tier={m.data.evidenceTier} />
-            </div>
-            <p class="mt-1 mb-0 text-[var(--text-muted)]">
-              {m.data.whoItTendsToFit}
-            </p>
-          </a>
-        </li>
-      ))
-    }
+  <ul class="entry-list" role="list">
+    {modalities.map((m) => (
+      <li class="directory-entry">
+        <div class="entry-heading">
+          <h2><a href={url(`modalities/${m.id}/`)}>{m.data.name}</a></h2>
+          <EvidenceTag tier={m.data.evidenceTier} />
+        </div>
+        <p class="entry-description">{m.data.whoItTendsToFit}</p>
+      </li>
+    ))}
   </ul>
 
   <NextSteps>

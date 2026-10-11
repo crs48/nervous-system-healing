@@ -22,18 +22,11 @@ const d = entry.data;
   title={d.title}
   description={d.description}
   crumbs={[
-    { label: "understand", href: "learn/" },
+    { label: "Understand", href: "learn/" },
   ]}
 >
   <article>
-    <h1 class="text-3xl sm:text-4xl">{d.title}</h1>
-    <p class="mt-2 text-sm text-[var(--text-muted)]">
-      {d.stage} · planted {d.planted.toISOString().slice(0, 10)}
-      {
-        d.lastTended &&
-          ` · last tended ${d.lastTended.toISOString().slice(0, 10)}`
-      }
-    </p>
+    <h1 class="page-title">{d.title}</h1>
     <Lead>{d.description}</Lead>
 
     <div class="prose">
@@ -42,7 +35,7 @@ const d = entry.data;
 
     {
       d.sources.length > 0 && (
-        <section class="mt-8 max-w-[65ch] text-sm">
+        <section class="sources">
           <h2 class="text-lg">Sources</h2>
           <ul>
             {d.sources.map((s) => (

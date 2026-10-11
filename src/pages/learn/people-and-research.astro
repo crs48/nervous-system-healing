@@ -1,0 +1,40 @@
+---
+import Base from "../../layouts/Base.astro";
+import Lead from "../../components/Lead.astro";
+import NextSteps from "../../components/NextSteps.astro";
+import { url } from "../../lib/url";
+const people = [
+  { name: "Irene Lyon", subject: "Somatic education", text: "Sensory awareness and everyday somatic learning.", note: "Her work blends several approaches. Course claims are not the same as independent clinical evidence; some resources require email signup.", href: "https://irenelyon.com/free-resources/", link: "Free resources" },
+  { name: "Joe Hudson", subject: "Emotional inquiry", text: "Conversations about feelings, relationships, and the fear of being seen.", note: "Coaching and personal development, rather than a validated PTSD treatment. An invitation to feel more won't fit every moment.", href: "https://www.artofaccomplishment.com/podcast/whats-beneath-your-fear-of-being-seen---coaching-with-joe", link: "A coaching conversation" },
+  { name: "Jonny Miller", subject: "Practical learning", text: "A vocabulary for stress, noticing, and experimentation.", note: "Nervous System Mastery is an educational program with paid offerings. Its teaching framework is not a clinical outcome guarantee.", href: "https://www.nsmastery.com/topics", link: "Public topic library" },
+  { name: "Bessel van der Kolk", subject: "Trauma research", text: "Background on trauma, embodiment, and the research behind the conversation.", note: "Some material is intense or intended for professionals. Evidence varies by intervention; an author's interest is not proof that a method works.", href: "https://traumaresearchfoundation.org/resources/", link: "Trauma Research Foundation resources" },
+];
+---
+<Base title="People and research" description="Public resources from four educators and researchers, with context and recent research notes." crumbs={[{ label: "Understand", href: "learn/" }]}>
+  <h1 class="page-title">People and research</h1>
+  <Lead>A few places to learn more, with notes on what each offers and its limits. This is a starting list, not a ranking or endorsement.</Lead>
+  <div class="prose">
+    {people.map((person) => (
+      <section>
+        <h2>{person.name}</h2>
+        <p><strong>{person.subject}.</strong> {person.text}</p>
+        <p>{person.note}</p>
+        <p><a href={person.href}>{person.link} →</a></p>
+      </section>
+    ))}
+    <h2>Research notes</h2>
+    <p>For established PTSD treatment guidance, start with the <a href="https://www.ptsd.va.gov/professional/treat/txessentials/overview_therapy.asp">VA's overview of recommended therapies</a>. The studies below address narrower questions.</p>
+    <h3>Brief somatic sessions</h3>
+    <p>Two randomized studies reported encouraging immediate findings. They do not establish lasting trauma recovery. <a href="https://www.tandfonline.com/doi/full/10.1080/20008066.2026.2613544">Read the study and its limits</a>.</p>
+    <h3>Parts work</h3>
+    <p>A small trial found improvement in both groups, with no significant PTSD symptom advantage for the IFS-based program over its active comparison. <a href="https://pubmed.ncbi.nlm.nih.gov/41609644/">Read the randomized trial abstract</a>.</p>
+    <h3>Polyvagal theory</h3>
+    <p>Polyvagal language is influential, but key physiological claims remain contested. <a href="https://pubmed.ncbi.nlm.nih.gov/41768017/">Read the critique</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/41768026/">the response</a>.</p>
+  </div>
+  <p class="text-sm text-[var(--text-muted)] mt-8">Research reviewed October 10, 2026.</p>
+  <NextSteps>
+    <li><a href={url("about/criteria/")}>How we evaluate evidence</a></li>
+    <li><a href={url("modalities/")}>Compare approaches to support</a></li>
+    <li><a href={url("learn/")}>Back to Understand</a></li>
+  </NextSteps>
+</Base>
