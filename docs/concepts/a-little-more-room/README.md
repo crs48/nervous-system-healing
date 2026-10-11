@@ -1,6 +1,6 @@
 # A little more room — interactive design concept
 
-The original independently runnable homepage proposal for [exploration 0010](../../explorations/0010_%5B_%5D_A_LITTLE_MORE_ROOM_NERVOUS_SYSTEM_SITE_REJUVENATION.md). Its approved design is now implemented in the production Astro homepage at [Nervous System Healing](https://crs48.github.io/nervous-system-healing/). This folder preserves the standalone reference; production components and behavior live under `src/`.
+The original independently runnable homepage proposal for [exploration 0010](../../explorations/0010_%5B_%5D_A_LITTLE_MORE_ROOM_NERVOUS_SYSTEM_SITE_REJUVENATION.md). This is an archived design. After trying it live, Chris chose a simpler guide-first layout for [gently.fyi](https://gently.fyi/), with the original five-step tour and one shared reading design throughout the site.
 
 Open [index.html](index.html) directly, or run from the repository root:
 
@@ -26,8 +26,8 @@ No selections are saved. There are no third-party fonts, embeds, tracking script
 The hero now has separate armrests and continuous legs beneath the blanket.
 The footer links to the public [repository](https://github.com/crs48/nervous-system-healing),
 its [MIT license](../../../LICENSE) under Christopher Smothers, and
-[contribution guidance](../../../CONTRIBUTING.md). The production homepage
-includes these links and the corrected illustration. The broader article,
+[contribution guidance](../../../CONTRIBUTING.md). The current production site keeps the community links; the illustration
+remains here as part of this archived concept. The broader article,
 directory, and editorial changes remain tracked in exploration 0010.
 
 ## Review record — October 10, 2026

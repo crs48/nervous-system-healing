@@ -6,7 +6,7 @@ Nervous System Healing has a kind, useful foundation, but the experience is quie
 
 The request is to explore an overhaul: learn from the other sites on [crs.land](https://crs.land/), bring in current research and important voices, and create a more playful, compelling starting place for a nervous-system healing journey. The recent [tweet](https://x.com/becomingbabyman/status/2108715333494411314), [Timeout essay](https://xnet.fyi/blog/timeout/), and [coaching site](https://crs.coach/) supply public context.
 
-**Date:** October 10, 2026. **Status:** the approved homepage design is implemented; the broader editorial and directory overhaul remains proposed. The `[_]` filename tracks that remaining work. The companion [research dossier](../research/2026-10-10_NERVOUS_SYSTEM_RESEARCH_AND_PEOPLE.md) records evidence, limitations, and resource choices. The original [interactive concept](../concepts/a-little-more-room/index.html) remains a design reference; the production homepage lives in `src/pages/index.astro`.
+**Date:** October 10, 2026. **Status:** archived design direction. The illustrated homepage was implemented, then superseded at Chris’s request by a simpler tour-first design across the site. Existing article content and the research resources are preserved; the broader editorial recommendations below remain proposed. The `[_]` filename tracks that remaining work. The companion [research dossier](../research/2026-10-10_NERVOUS_SYSTEM_RESEARCH_AND_PEOPLE.md) records evidence, limitations, and resource choices. The original [interactive concept](../concepts/a-little-more-room/index.html) remains a design reference; the production homepage lives in `src/pages/index.astro`.
 
 ## Executive summary
 

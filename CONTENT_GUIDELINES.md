@@ -106,13 +106,15 @@ honestly-graded phenomenology and mechanism — never as protocols.
 
 Every content page: breadcrumb → H1 → **lead that could be the whole page**
 (never teases) → body that's complete without opening anything → optional
-`GoDeeper` (one level) → the leaf motif → `NextSteps` (≤3 links: one deeper,
-one sideways, one back) → warm footer sign-off.
+`GoDeeper` (one level) → `NextSteps` (≤3 useful links) → compact footer.
 
 ## Design coherence (0007)
 
 - Tokens only — no ad-hoc colors, fonts, radii, shadows. See `/style`.
 - No pure `#fff` / `#000` anywhere.
-- At most ~3 decorative motifs per view; a new motif retires an old one.
-- Motion honors `prefers-reduced-motion`; nothing autoplays; whimsy only in
-  rare states (404, end-of-article).
+- Use plain lists and dividers. No decorative illustrations, motifs, shadows,
+  or repeated reassurance. Reserve panels for tools and meaningful asides.
+- Motion honors `prefers-reduced-motion`; nothing autoplays.
+- The homepage is a useful table of contents: the five-part tour first, then
+  practices, explainers, and approaches. Keep research and people in the
+  reading section. Preserve the original explanatory content.

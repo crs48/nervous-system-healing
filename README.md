@@ -1,4 +1,4 @@
-# Nervous System Healing
+# Gently — Nervous System Healing
 
 A free, evidence-honest, trauma-informed website about nervous system healing
 and somatic regulation — short practices, an honest directory of modalities,
@@ -14,13 +14,17 @@ A community resource by **Christopher Smothers**, released under the
 See [CONTRIBUTING.md](CONTRIBUTING.md) for corrections, research updates,
 accessibility improvements, and pull requests.
 
-## Design exploration
+## Design
 
-The homepage uses the **A little more room** design: an illustrated welcome,
-optional starting invitations, a quiet view, and annotated people and research.
-The original [design concept](docs/concepts/a-little-more-room/README.md) remains
-as a standalone reference, with screenshots and links to the research and
-broader overhaul brief.
+The homepage starts with the original five-part introduction. The same reading
+layout, typography, navigation, and restrained palette apply across the tour,
+articles, practices, directories, and tools. Existing article content is preserved.
+People and research references live under
+[Understand](https://gently.fyi/learn/people-and-research/).
+
+The [style guide](https://gently.fyi/style/) documents the shared components.
+The earlier illustrated [design concept](docs/concepts/a-little-more-room/README.md)
+is preserved as an archive, separate from the current website.
 
 ## Stack
 
